@@ -34,8 +34,11 @@
             <div class="mb-3 d-grid">
                 <button name="submit" type="submit" class="btn btn-primary">Login</button>
             </div>
+            <div class="text-end small">
+                Belum punya akun? <a href="/register">Registrasi di sini</a>
+            </div>
         </form>
-    </div> 
+    </div>
     </div>
 </body>
 </html>
