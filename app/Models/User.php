@@ -45,21 +45,4 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-    public function pelanggan()
-    {
-        return $this->hasOne(Pelanggan::class, 'pelanggan_name','name');
-    }
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::created(function ($user) {
-            // Automatically create a corresponding pelanggan record
-            $user->pelanggan()->create([
-                'pelanggan_name' => $user->name,
-                'pelanggan_email' => $user->email,
-
-            ]);
-        });
-    }
 }
