@@ -34,7 +34,7 @@
             </li>
             <hr class="sidebar-divider">
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/admin/admin/kelolaPelanggan">
                     <i class="fas fa-users text-dark"></i>
                     <span class="text-dark">Kelola Pelanggan</span></a>
             </li>
@@ -49,6 +49,11 @@
                 <a class="nav-link text-dark" href="#">
                     <i class="fas fa-dollar-sign text-dark"></i>
                     <span class="text-dark">Kelola Kasir</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" href="/logout">
+                    <i class="fas fa-dollar-sign text-dark"></i>
+                    <span class="text-dark">Logout</span></a>
             </li>
         </ul>
         <div id="content-wrapper" class="d-flex flex-column">
@@ -77,7 +82,7 @@
                             </div>
                         </li>
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="/profile" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <h5 class="mr-2 d-none d-lg-inline text-dark mt-3"><b>Fadhilah Azzahra</b></h5>
                                 <img class="img-profile rounded-circle" src="{{ asset('images/profil.jpeg') }}">
                             </a>

@@ -35,11 +35,26 @@
                 <label for="password" class="form-label">Password</label>
                 <input type="password" name="password" class="form-control">
             </div>
+            {{-- PENAMBAHAN KOLOM ISIAN UNTUK ROLE --}}
+            <div class="mb-3">
+                <label for="role" class="form-label">Role</label>
+                <select name="role" class="form-control">
+                    <option value="admin">Admin</option>
+                    <option value="pelanggan">Pelanggan</option>
+                    <option value="kasir">Kasir</option>
+                    <option value="petugas">Petugas</option>
+                </select>
+            </div>
+
             <div class="mb-3 d-grid">
                 <button name="submit" type="submit" class="btn btn-primary">Register</button>
             </div>
+
+            <div class="text-end small">
+                Sudah punya akun? <a href="{{ route('login') }}">Login di sini</a>
+            </div>
         </form>
-    </div> 
+    </div>
     </div>
 </body>
 </html>

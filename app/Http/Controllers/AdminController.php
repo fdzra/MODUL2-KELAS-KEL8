@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Spatie\FlareClient\View;
 
 class AdminController extends Controller
 {
@@ -30,9 +29,8 @@ class AdminController extends Controller
         return view('petugas.dashboard');
     }
     function admin(){
-        // echo "Halo, selamat datang  di halaman Admin";
-        // echo "<h1>". Auth::user()->name ."</h1>";
-        // echo "<a href='/logout'>Logout>></a>";
-        return view('admin.dashboard');
+        echo "Halo, selamat datang  di halaman Admin";
+        echo "<h1>". Auth::user()->name ."</h1>";
+        echo "<a href='/logout'>Logout>></a>";
     }
 }
