@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SesiController;
+use App\Http\Controllers\PetugasController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Middleware\UserAkses;
 
@@ -28,3 +29,11 @@ Route::middleware(['auth'])->group(function(){
 });
 
 
+Route::get('/admin/petugas/kelolaPerangkat', [PetugasController::class, 'index']);
+Route::get('/admin/petugas/detailPerangkat', [PetugasController::class, 'detailPerangkat']);
+Route::get('/admin/petugas/formRequestLokasi', [PetugasController::class, 'formRequestLokasi']);
+Route::get('/admin/petugas/formRequestPemasangan', [PetugasController::class, 'formRequestPemasangan']);
+Route::get('/admin/petugas/formRequestIntegrasi', [PetugasController::class, 'formRequestIntegrasi']);
+Route::get('/admin/petugas/formRequestKonfirmasi', [PetugasController::class, 'formRequestKonfirmasi']);
+Route::get('/admin/petugas/laporanPengaduan', [PetugasController::class, 'laporanPengaduan']);
+Route::get('/admin/petugas/detailPengaduan', [PetugasController::class, 'detailPengaduan']);
