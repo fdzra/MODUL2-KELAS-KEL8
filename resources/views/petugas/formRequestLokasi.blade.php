@@ -141,7 +141,7 @@
                                     <div class="mb-3">
                                         <div style="margin-left: 20px; margin-right: 20px;">
                                             <label for="exampleInputEmail1" class="form-label">Nama Lengkap</label>
-                                            <input type="text" id="disabledTextInput" class="form-control" placeholder="John Doe" disabled>
+                                            <input type="text" id="disabledTextInput" class="form-control" placeholder="{{ $request->nama_pelanggan }}" disabled>
                                         </div>
                                     </div>
                                 </div>
@@ -198,7 +198,10 @@
                     <div class="col-xl-11 col-md-14 mb-14 d-flex justify-content-start align-items-center" style="margin-left: 30px;">
                         <a class="btn btn-sm btn-success" href="/admin/petugas">Back</a>
                         <div class="col-xl-11 col-md-14 mb-14 d-flex justify-content-end align-items-center" style="margin-left: 70px;">
-                            <a class="btn btn-sm btn-success" href="/admin/petugas/formRequestPemasangan">Menuju Lokasi Pemasangan</a>
+                            <form action="{{ route('request.pemasangan', $request->id) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-success">Menuju Lokasi Pemasangan</button>
+                            </form>
                         </div>
                     </div>
                 </div>

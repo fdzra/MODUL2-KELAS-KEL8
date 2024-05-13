@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
@@ -23,7 +24,8 @@ class AdminController extends Controller
         echo "<a href='/logout'>Logout>></a>";
     }
     function petugas(){
-        return view('petugas.dashboard');
+        $requestPemasangan = DB::table('request_pemasangan')->get();
+        return view('petugas.dashboard', compact('requestPemasangan'));
     }
     function admin(){
         echo "Halo, selamat datang  di halaman Admin";

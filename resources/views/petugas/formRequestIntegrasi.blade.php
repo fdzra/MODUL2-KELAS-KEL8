@@ -165,9 +165,9 @@
                 </div>
                 <div class="row">
                     <div class="col-xl-11 col-md-14 mb-14 d-flex justify-content-start align-items-center" style="margin-left: 30px;">
-                        <a class="btn btn-sm btn-success" href="/admin/petugas/formRequestPemasangan">Back</a>
+                        <a class="btn btn-sm btn-success" href="{{ route('request.pemasangan', $request->id) }}">Back</a>
                         <div class="col-xl-11 col-md-14 mb-14 d-flex justify-content-end align-items-center" style="margin-left: 70px;">
-                            <a class="btn btn-sm btn-success" href="/admin/petugas/formRequestKonfirmasi">Submit Formulir Integrasi</a>
+                            <a class="btn btn-sm btn-success" href="{{ route('request.konfirmasi', $request->id) }}">Submit Formulir Integrasi</a>
                         </div>
                     </div>
                 </div>

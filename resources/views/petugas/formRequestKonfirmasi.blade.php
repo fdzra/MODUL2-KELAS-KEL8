@@ -125,7 +125,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col-xl-12 col-lg-7">
                             <div class="card shadow mb-4">
@@ -266,9 +265,12 @@
                 </div>
                 <div class="row">
                     <div class="col-xl-11 col-md-14 mb-14 d-flex justify-content-start align-items-center" style="margin-left: 30px;">
-                        <a class="btn btn-sm btn-success" href="/admin/petugas/formRequestIntegrasi">Back</a>
+                        <a class="btn btn-sm btn-success" href="{{ route('request.integrasi', $request->id) }}">Back</a>
                         <div class="col-xl-11 col-md-14 mb-14 d-flex justify-content-end align-items-center" style="margin-left: 70px;">
-                            <a class="btn btn-sm btn-success" href="/admin/petugas">Konfirmasi Pemasangan</a>
+                            <form action="{{ route('request.selesai', $request->id) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-success">Konfirmasi Pemasangan</button>
+                            </form>
                         </div>
                     </div>
                 </div>
