@@ -21,6 +21,7 @@
 
 <body id="page-top">
     <div id="wrapper">
+        <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-white sidebar sidebar-dark accordion" id="accordionSidebar">
             <a class="sidebar-brand d-flex align-items-center justify-content-center mt-4 p-3" href="/">
                 <img src="{{ asset('images/logo.png') }}" width="100%" alt="Logo">
@@ -53,9 +54,11 @@
         </ul>
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
+                <!-- Search Dropdown & Profile -->
                 <nav class="navbar navbar-expand navbar-light bg-light topbar pt-3 ml-3 mb-4 static-top">
                     <h1 class="h3 text-primary mt-4 mb-0"><b>Detail Kelola Perangkat</b></h1>
                     <ul class="navbar-nav ml-auto">
+                        <!-- Search Dropdown -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
@@ -73,6 +76,7 @@
                                 </form>
                             </div>
                         </li>
+                        <!-- Profile -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <h5 class="mr-2 d-none d-lg-inline text-dark mt-3"><b>{{ Auth::user()->name }}</b></h5>
@@ -92,10 +96,8 @@
                         </li>
                     </ul>
                 </nav>
-                
-
+                <!-- Card Formulir Pemasangan -->
                 <div class="container-fluid">
-
                     <div class="row">
                         <div class="col-xl-12 col-lg-7">
                             <div class="card shadow mb-4">
@@ -103,6 +105,7 @@
                                     <p class="m-0 font-weight-bold text-dark">FORMULIR PEMASANGAN</p>
                                     <h5 class="m-0 text-grey"></h5>
                                 </div>
+                                <!-- Status Device -->
                                 <div style="height: 25px;"></div>
                                 <div class="mb-3">
                                     <div class="col-lg-12">
@@ -137,6 +140,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!-- Detail Device -->
                                 <div style="height: 25px;"></div>
                                 <div class="mb-3">
                                     <div class="col-lg-12">
@@ -179,6 +183,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!-- Lokasi Device -->
                                 <div style="height: 25px;"></div>
                                 <div class="mb-3">
                                     <div class="col-lg-12">
@@ -188,6 +193,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!-- Pengiriman Data -->
                                 <div style="height: 25px;"></div>
                                 <div class="mb-3">
                                     <div class="col-lg-12">
@@ -196,6 +202,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!-- Card Tabel Laporan Perangkat Pembaca Air -->
                                 <div class="row">
                                     <div class="col-xl-12 col-lg-7">
                                         <div style="margin-left: 20px; margin-right: 20px;">
@@ -250,6 +257,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Back -->
                 <div class="row">
                     <div class="col-xl-11 col-md-14 mb-14 d-flex justify-content-start align-items-center" style="margin-left: 30px;">
                         <a class="btn btn-sm btn-success" href="/admin/petugas/kelolaPerangkat">Back</a>
@@ -262,7 +270,6 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
-
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">

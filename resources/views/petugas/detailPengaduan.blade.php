@@ -201,6 +201,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Card Konfirmasi Penyelesaian Masalah -->
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-xl-12 col-lg-7">
@@ -229,6 +230,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Back and Submit -->
                 <div class="row">
                     <div class="col-xl-11 col-md-14 mb-14 d-flex justify-content-start align-items-center" style="margin-left: 30px;">
                         <a class="btn btn-sm btn-success" href="/admin/petugas/laporanPengaduan">Back</a>
