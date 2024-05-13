@@ -2,20 +2,18 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Pelanggan extends Model
 {
-    protected $primaryKey = 'pelanggan_id';
-
+    protected $table= 'pelanggan';
     protected $fillable = [
-        'device_UID', 'pelanggan_name', 'pelanggan_phone', 'pelanggan_email',
-        'pelanggan_alamat', 'pelanggan_kota', 'pelanggan_provinsi'
+        'id_user',
+        'id_perangkat',
+        'alamat',
+        'kecamatan',
+        'kota',
+        'no_handphone',
     ];
-
-    public function user()
-    {
-        // Define the relationship with User and filter by role 'pelanggan'
-        return $this->belongsTo(User::class, 'user_id')->where('role', 'pelanggan');
-    }
 }
