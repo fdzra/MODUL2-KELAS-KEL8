@@ -15,9 +15,9 @@ return new class extends Migration
             $table->bigIncrements('id_pelanggan');
             $table->integer('id_user');
             $table->integer('id_perangkat');
-            $table->text('alamat');
-            $table->string('kecamatan');
-            $table->string('kota');
+            $table->text('alamat_pelanggan');
+            $table->string('kecamatan_pelanggan');
+            $table->string('kota_pelanggan');
             $table->string('no_handphone');
             $table->timestamps();
         });
