@@ -146,7 +146,7 @@
                                     <div class="mb-3">
                                         <div style="margin-left: 20px; margin-right: 20px;">
                                             <label for="exampleInputEmail1" class="form-label">Nama Device</label>
-                                            <input type="text" id="disabledTextInput" class="form-control" placeholder="device=bima12-30-Ujung Berung-13" disabled>
+                                            <input type="text" id="disabledTextInput" class="form-control" placeholder="device=bima12-30-Ujung Berung-13">
                                         </div>
                                     </div>
                                 </div>
