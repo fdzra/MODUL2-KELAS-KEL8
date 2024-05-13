@@ -39,7 +39,7 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/admin/petugas/kelolaPerangkat', [PetugasController::class, 'index'])->middleware(UserAkses::class . ':petugas');
     Route::get('/admin/petugas/detailPerangkat', [PetugasController::class, 'detailPerangkat'])->middleware(UserAkses::class . ':petugas');
     Route::get('/admin/petugas/formRequestLokasi/{id}', [PetugasController::class, 'formRequestLokasi'])->name('request.lokasi')->middleware(UserAkses::class . ':petugas');
-    Route::post('/admin/petugas/formRequestPemasangan/{id}', [PetugasController::class, 'formRequestPemasangan'])->name('request.pemasangan')->middleware(UserAkses::class . ':petugas');
+    Route::match(['get', 'post'],'/admin/petugas/formRequestPemasangan/{id}', [PetugasController::class, 'formRequestPemasangan'])->name('request.pemasangan')->middleware(UserAkses::class . ':petugas');
     Route::get('/admin/petugas/formRequestIntegrasi/{id}', [PetugasController::class, 'formRequestIntegrasi'])->name('request.integrasi')->middleware(UserAkses::class . ':petugas');
     Route::get('/admin/petugas/formRequestKonfirmasi/{id}', [PetugasController::class, 'formRequestKonfirmasi'])->name('request.konfirmasi')->middleware(UserAkses::class . ':petugas');
     Route::post('/admin/petugas/formRequestLokasi/{id}/selesai', [PetugasController::class, 'submitSelesai'])->name('request.selesai')->middleware(UserAkses::class . ':petugas');

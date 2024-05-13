@@ -149,15 +149,7 @@
                                     <div class="mb-3">
                                         <div style="margin-left: 20px; margin-right: 20px;">
                                             <label for="exampleInputEmail1" class="form-label">Kecamatan</label>
-                                            <input type="text" id="disabledTextInput" class="form-control" placeholder="Ujung Berung" disabled>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <div style="margin-left: 20px; margin-right: 20px;">
-                                            <label for="exampleInputEmail1" class="form-label">Kode Pos</label>
-                                            <input type="text" id="disabledTextInput" class="form-control" placeholder="40611" disabled>
+                                            <input type="text" id="disabledTextInput" class="form-control" placeholder="{{ $request->kecamatan_pelanggan }}" disabled>
                                         </div>
                                     </div>
                                 </div>
@@ -165,7 +157,7 @@
                                     <div class="mb-3">
                                         <div style="margin-left: 20px; margin-right: 20px;">
                                             <label for="exampleInputEmail1" class="form-label">Alamat Rumah</label>
-                                            <input type="text" id="disabledTextInput" class="form-control" placeholder="Jalan-jalan senang no 1" disabled>
+                                            <input type="text" id="disabledTextInput" class="form-control" placeholder="{{ $request->alamat_pelanggan }}" disabled>
                                         </div>
                                     </div>
                                 </div>
@@ -173,11 +165,11 @@
                                     <div class="mb-3">
                                         <div style="margin-left: 20px; margin-right: 20px;">
                                             <label for="exampleInputEmail1" class="form-label">Nomor Handphone</label>
-                                            <input type="text" id="disabledTextInput" class="form-control" placeholder="082216136564" disabled>
+                                            <input type="text" id="disabledTextInput" class="form-control" placeholder="{{ $request->no_handphone }}" disabled>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
+                                <!-- <div class="col-lg-6">
                                     <div class="mb-3">
                                         <div style="margin-left: 20px;">
                                             <label for="exampleInputEmail1" class="form-label">Foto Rumah</label>
@@ -188,7 +180,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>

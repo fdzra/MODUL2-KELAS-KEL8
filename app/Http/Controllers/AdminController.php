@@ -25,7 +25,11 @@ class AdminController extends Controller
     }
     function petugas(){
         $requestPemasangan = DB::table('request_pemasangan')->get();
-        return view('petugas.dashboard', compact('requestPemasangan'));
+        // Contoh pengambilan jumlah "Belum Diproses" dari database
+        $belumDiprosesCount = DB::table('request_pemasangan')->where('status', 'Belum Diproses')->count();
+        $sedangDiprosesCount = DB::table('request_pemasangan')->where('status', 'Sedang Diproses')->count();
+        $sudahSelesaiCount = DB::table('request_pemasangan')->where('status', 'Selesai')->count();
+        return view('petugas.dashboard', compact('requestPemasangan', 'belumDiprosesCount', 'sedangDiprosesCount', 'sudahSelesaiCount'));
     }
     function admin(){
         echo "Halo, selamat datang  di halaman Admin";
