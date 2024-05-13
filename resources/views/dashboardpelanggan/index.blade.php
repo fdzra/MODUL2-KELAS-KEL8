@@ -16,16 +16,43 @@
                     <div class="card-header">
                         <h4 class="d-inline">Penggunaan Air</h4>
                         <div class="card-header-action">
-                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">
-                                Edit Target
-                            </button>
+                        <button type="button" class="btn btn-danger" id="editTargetButton" data-toggle="modal" data-target="#exampleModalCenter">
+                            Edit Target
+                        </button>
+
                         </div>
                     </div>
                     <div class="card-body">
+                        @php
+                            // Inisialisasi total penggunaan air
+                            $totalPenggunaanAir = 0;
+
+                            // Hitung total penggunaan air dari semua data
+                            foreach($dataPenggunaanAir as $data) {
+                                $totalPenggunaanAir += $data->penggunaan_air;
+                            }
+
+                            // Hitung presentase penggunaan air terhadap target penggunaan air
+                            $presentase = ($totalPenggunaanAir / $targetPenggunaanAir->target_penggunaan_air) * 100;
+
+                            // Tentukan warna progress bar berdasarkan presentase
+                            $warna = $presentase >= 100 ? 'bg-danger' : 'bg-success';
+
+                            // Pastikan presentase tidak kurang dari 0
+                            $presentase = max($presentase, 0);
+
+                        @endphp
+                        
                         <div class="progress">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div>
+                        <div class="progress-bar {{ $warna }}" role="progressbar" style="width: {{ number_format($presentase, 1) }}%;" aria-valuenow="{{ number_format($presentase, 1) }}" aria-valuemin="0" aria-valuemax="100">{{ number_format($presentase, 1) }}%</div>
                         </div>
-                        <p class="mt-3">Target Penggunaan Air: {{ $targetPenggunaanAir->target_penggunaan_air ?? '' }} <span class="text-danger">Terlampaui</span></p>
+                        <p class="mt-3">Target Penggunaan Air: {{ $targetPenggunaanAir->target_penggunaan_air ?? '' }} 
+                            <span class="text-{{ $presentase < 100 ? 'success' : 'danger' }}">
+                                {{ $presentase < 100 ? 'Belum Terlampaui' : 'Terlampaui' }}
+                            </span>
+                        </p>
+
+
                     </div>
                 </div>
             </div>
@@ -106,6 +133,8 @@
                     <div class="card-header">
                         <h4 class="d-inline">Tabel Penggunaan Air</h4>
                     </div>
+                    <!-- resources/views/index.blade.php -->
+
                     <div class="card-body">
                         <table class="table" id="sidetable">
                             <thead>
@@ -116,15 +145,17 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($dataPenggunaanAir as $data)
                                 <tr>
-                                    <td>Januari</td>
-                                    <td>2022</td>
-                                    <td>13520.3 M3</td>
+                                    <td>{{ $data->bulan }}</td>
+                                    <td>{{ $data->tahun }}</td>
+                                    <td>{{ $data->penggunaan_air }} M3</td>
                                 </tr>
-                                <!-- Tambahkan baris lainnya sesuai kebutuhan -->
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
+
                 </div>
             </div>
         </div>

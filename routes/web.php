@@ -7,6 +7,8 @@ use App\Http\Controllers\TransaksiController;
 use App\Models\Transaksi;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TargetPenggunaanAirController;
+use App\Http\Controllers\PenggunaanAirController;
+
 
 
 /*
@@ -22,7 +24,10 @@ use App\Http\Controllers\TargetPenggunaanAirController;
 
 # ini routing buat localhost:8000/
 // Route::get('/', [TransaksiController::class, 'getDataTransaksi'])->name('data-transaksi');
-Route::get('/', [PelangganController::class, 'index']);
+// Route::get('/', [PelangganController::class, 'index']);
+Route::get('/', function () {
+    return redirect('/penggunaan_air');
+});
 Route::get('/laporanpengaduan',function () {
     return view ('laporanpengaduan.index');
 });
@@ -47,3 +52,5 @@ Route::delete('/request-pemasangan/destroy/{id}', [RequestPemasanganController::
 
 Route::get('/target_penggunaan_air', [TargetPenggunaanAirController::class, 'index']);
 Route::post('/target_penggunaan_air', [TargetPenggunaanAirController::class, 'update']);
+
+Route::get('/penggunaan_air', [PenggunaanAirController::class, 'index']);
