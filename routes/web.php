@@ -3,7 +3,6 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\KasirController;
 use App\Http\Controllers\SesiController;
-use App\Http\Controllers\PetugasController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Middleware\UserAkses;
 
@@ -30,9 +29,9 @@ Route::middleware(['auth'])->group(function(){
     // INI BAGIAN KASIR
     Route::get('/admin/kasir', [AdminController::class, 'kasir'])->middleware(UserAkses::class . ':kasir');
     Route::get('/admin/kasir/dashboard', [KasirController::class, 'dashboard'])->middleware(UserAkses::class . ':kasir');
-    // Route::get('/admin/kasir/dashboard', function(){
-    //     return view('Kasir.kasirdashboard');
-    // });
+    Route::get('/admin/kasir/pembayaran', [KasirController::class, 'pembayaran'])->middleware(UserAkses::class . ':kasir');
+
+    Route::post('place-order', [KasirController::class, 'store_pembayaran'])->middleware(UserAkses::class . ':kasir');
 
     // INI BAGIAN PETUGAS
     Route::get('/admin/petugas', [AdminController::class, 'petugas'])->middleware(UserAkses::class . ':petugas');

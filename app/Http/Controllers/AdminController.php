@@ -23,9 +23,6 @@ class AdminController extends Controller
         echo "<a href='/logout'>Logout>></a>";
     }
     function petugas(){
-        // echo "Halo, selamat datang  di halaman Petugas";
-        // echo "<h1>". Auth::user()->name ."</h1>";
-        // echo "<a href='/logout'>Logout>></a>";
         return view('petugas.dashboard');
     }
     function admin(){
