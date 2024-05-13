@@ -45,7 +45,7 @@
 
     <!--Main layout-->
     <main style="margin-top: 58px">
-        @yield('KasirPanel')
+        @yield('content')
     </main>
 
     @include('KasirLayouts.KasirInc.kasirfooter')

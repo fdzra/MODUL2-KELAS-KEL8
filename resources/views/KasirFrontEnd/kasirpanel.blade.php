@@ -1,3 +1,3 @@
 @extends('KasirLayouts.frontend')
 
-@section('KasirPanel')
+@section('content')

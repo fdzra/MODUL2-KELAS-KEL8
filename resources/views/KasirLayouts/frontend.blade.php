@@ -31,7 +31,7 @@
     @include('KasirLayouts.KasirInc.front-navbar')
 
     <main>
-        @yield('KasirPanel')
+        @yield('content')
     </main>
 
     @include('KasirLayouts.KasirInc.front-footer')

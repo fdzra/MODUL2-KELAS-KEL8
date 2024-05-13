@@ -1,154 +1,111 @@
 @extends('KasirLayouts.kasir')
 
-@section('KasirPanel')
+@section('content')
 
 <div class="container pt-4">
-    <!-- Section: Main chart -->
+    <div class="row">
+        <!-- Section: Main chart -->
 
-    {{-- INI BELUM TERPAKAI --}}
-    {{-- <section class="mb-4">
-      <div class="card">
-        <div class="card-header py-3">
-          <h5 class="mb-0 text-center"><strong>Sales</strong></h5>
-        </div>
-        <div class="card-body">
-          <canvas class="my-4 w-100" id="myChart" height="380"></canvas>
-        </div>
-      </div>
-    </section> --}}
-    <!-- Section: Main chart -->
-
-    <!--Section: Sales Performance KPIs-->
-    <section class="mb-4">
-      <div class="card">
-        <div class="card-header text-center py-3">
-          <h5 class="mb-0 text-center">
-            <strong>Data Pelanggan</strong>
-          </h5>
-        </div>
-        <div class="card-body">
-          <div class="table-responsive">
-            <table id = 'datatable1' class="table table-hover text-nowrap">
-              <thead>
-                <tr>
-                  <th scope="col">Nama Pelanggan</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">Role</th>
-                  <th scope="col">Buat Pesanan</th>
-                </tr>
-              </thead>
-              <tbody>
-                @foreach ( $user as $u)
-                    <tr>
-                        <th scope="row">{{ $u->name }}</th>
-                        <td>{{ $u->email }}</td>
-                        <td>{{ $u->role }}</td>
-                        <td>
-                            <a href="" class="btn btn-primary">Buat Pesanan</a>
-                        </td>
-                    </tr>
-                @endforeach
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--Section: Sales Performance KPIs-->
-
-    <!--Section: Sales Performance KPIs-->
-    <section class="mb-4">
+        {{-- INI BELUM TERPAKAI --}}
+        {{-- <section class="mb-4">
         <div class="card">
-          <div class="card-header text-center py-3">
-            <h5 class="mb-0 text-center">
-              <strong>Sales Performance KPIs</strong>
-            </h5>
-          </div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-hover text-nowrap">
-                <thead>
-                  <tr>
-                    <th scope="col"></th>
-                    <th scope="col">Product Detail Views</th>
-                    <th scope="col">Unique Purchases</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Product Revenue</th>
-                    <th scope="col">Avg. Price</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">Value</th>
-                    <td>18,492</td>
-                    <td>228</td>
-                    <td>350</td>
-                    <td>$4,787.64</td>
-                    <td>$13.68</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Percentage change</th>
-                    <td>
-                      <span class="text-danger">
-                        <i class="fas fa-caret-down me-1"></i><span>-48.8%%</span>
-                      </span>
-                    </td>
-                    <td>
-                      <span class="text-success">
-                        <i class="fas fa-caret-up me-1"></i><span>14.0%</span>
-                      </span>
-                    </td>
-                    <td>
-                      <span class="text-success">
-                        <i class="fas fa-caret-up me-1"></i><span>46.4%</span>
-                      </span>
-                    </td>
-                    <td>
-                      <span class="text-success">
-                        <i class="fas fa-caret-up me-1"></i><span>29.6%</span>
-                      </span>
-                    </td>
-                    <td>
-                      <span class="text-danger">
-                        <i class="fas fa-caret-down me-1"></i><span>-11.5%</span>
-                      </span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Absolute change</th>
-                    <td>
-                      <span class="text-danger">
-                        <i class="fas fa-caret-down me-1"></i><span>-17,654</span>
-                      </span>
-                    </td>
-                    <td>
-                      <span class="text-success">
-                        <i class="fas fa-caret-up me-1"></i><span>28</span>
-                      </span>
-                    </td>
-                    <td>
-                      <span class="text-success">
-                        <i class="fas fa-caret-up me-1"></i><span>111</span>
-                      </span>
-                    </td>
-                    <td>
-                      <span class="text-success">
-                        <i class="fas fa-caret-up me-1"></i><span>$1,092.72</span>
-                      </span>
-                    </td>
-                    <td>
-                      <span class="text-danger">
-                        <i class="fas fa-caret-down me-1"></i><span>$-1.78</span>
-                      </span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="card-header py-3">
+            <h5 class="mb-0 text-center"><strong>Sales</strong></h5>
             </div>
-          </div>
+            <div class="card-body">
+            <canvas class="my-4 w-100" id="myChart" height="380"></canvas>
+            </div>
         </div>
-      </section>
+        </section> --}}
+        <!-- Section: Main chart -->
+
+    <!--Section: Sales Performance KPIs-->
+        <div class="col-md-6">
+            <section class="mb-4">
+                <div class="card">
+                <div class="card-header text-center py-3">
+                    <h5 class="mb-0 text-center">
+                    <strong>Data Pelanggan</strong>
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                    <table id = 'datatable1' class="table table-hover text-nowrap">
+                        <thead>
+                        <tr>
+                            <th scope="col">Nama Pelanggan</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Role</th>
+                            <th scope="col">Buat Pesanan</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach ( $user as $u)
+                            <tr>
+                                <th scope="row">{{ $u->name }}</th>
+                                <td>{{ $u->email }}</td>
+                                <td>{{ $u->role }}</td>
+                                <td>
+                                    <a href="/admin/kasir/pembayaran" class="btn btn-primary">Buat Transaksi</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+                </div>
+            </section>
+        </div>
+        <!--Section: Sales Performance KPIs-->
+
+        <!--Section: Sales Performance KPIs-->
+        <div class="col-md-6">
+            <section class="mb-4">
+                <div class="card">
+                    <div class="card-header text-center py-3">
+                    <h5 class="mb-0 text-center">
+                        <strong>Data History Transaksi</strong>
+                    </h5>
+                    </div>
+                    <div class="card-body">
+                    <div class="table-responsive">
+                        <table id = 'datatable2' class="table table-hover text-nowrap">
+                        <thead>
+                            <tr>
+                            <th scope="col">Nomor Transaksi</th>
+                            <th scope="col">Nama Pelanggan</th>
+                            <th scope="col">Nomor Handphone</th>
+                            <th scope="col">Nama Perangkat</th>
+                            <th scope="col">Alamat</th>
+                            <th scope="col">Keterangan</th>
+                            <th scope="col">Penggunaan Debit Air</th>
+                            <th scope="col">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ( $transaksi as $t)
+                                <tr>
+                                    <th scope="row">{{ $t->id_transaksi }}</th>
+                                    <td>{{ $t->nama_pelanggan }}</td>
+                                    <td>{{ $t->no_handphone }}</td>
+                                    <td>{{ $t->nama_perangkat }}</td>
+                                    <td>{{ $t->alamat }}</td>
+                                    <td>{{ $t->keterangan }}</td>
+                                    <td>{{ $t->penggunaan_debit_air }}</td>
+                                    <td>{{ $t->total }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                        </table>
+                    </div>
+                    </div>
+                </div>
+            </section>
+        </div>
       <!--Section: Sales Performance KPIs-->
+    </div>
+    <!-- Section: Main chart -->
 
     <!--Section: Minimal statistics cards-->
     <section>
@@ -460,6 +417,7 @@
     <script>
         $(document).ready(function() {
             $('#datatable1').DataTable();
+            $('#datatable2').DataTable();
         });
     </script>
 @endsection
