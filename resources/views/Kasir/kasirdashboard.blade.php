@@ -46,7 +46,7 @@
                                 <td>{{ $u->email }}</td>
                                 <td>{{ $u->role }}</td>
                                 <td>
-                                    <a href="/admin/kasir/pembayaran" class="btn btn-primary">Buat Pesanan</a>
+                                    <a href="/admin/kasir/pembayaran" class="btn btn-primary">Buat Transaksi</a>
                                 </td>
                             </tr>
                         @endforeach

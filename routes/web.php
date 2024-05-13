@@ -35,6 +35,14 @@ Route::middleware(['auth'])->group(function(){
 
     // INI BAGIAN PETUGAS
     Route::get('/admin/petugas', [AdminController::class, 'petugas'])->middleware(UserAkses::class . ':petugas');
+    Route::get('/admin/petugas/kelolaPerangkat', [PetugasController::class, 'index'])->middleware(UserAkses::class . ':petugas');
+    Route::get('/admin/petugas/detailPerangkat', [PetugasController::class, 'detailPerangkat'])->middleware(UserAkses::class . ':petugas');
+    Route::get('/admin/petugas/formRequestLokasi', [PetugasController::class, 'formRequestLokasi'])->middleware(UserAkses::class . ':petugas');
+    Route::get('/admin/petugas/formRequestPemasangan', [PetugasController::class, 'formRequestPemasangan'])->middleware(UserAkses::class . ':petugas');
+    Route::get('/admin/petugas/formRequestIntegrasi', [PetugasController::class, 'formRequestIntegrasi'])->middleware(UserAkses::class . ':petugas');
+    Route::get('/admin/petugas/formRequestKonfirmasi', [PetugasController::class, 'formRequestKonfirmasi'])->middleware(UserAkses::class . ':petugas');
+    Route::get('/admin/petugas/laporanPengaduan', [PetugasController::class, 'laporanPengaduan'])->middleware(UserAkses::class . ':petugas');
+    Route::get('/admin/petugas/detailPengaduan', [PetugasController::class, 'detailPengaduan'])->middleware(UserAkses::class . ':petugas');
 
     // INI BAGIAN ADMIN
     Route::get('/admin/admin', [AdminController::class, 'admin'])->middleware(UserAkses::class . ':admin');

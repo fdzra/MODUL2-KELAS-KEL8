@@ -52,21 +52,21 @@ class KasirController extends Controller
                               , 3 (dilanjutkan)
             */
 
-            $tracktra = rand(1111,9999);
+            // $tracktra = rand(1111,9999);
 
-            $tt = new Tracking_Transaksi;
+            // $tt = new Tracking_Transaksi;
 
-            $tt->id_user = $id_user;
-            $tt->no_tracking = 'transaksi'.$tracktra;
-            // $tt->msg_tracking = "";
-            $tt->metode_pembayaran = 'm-banking';
-            // $tt->id_pembayaran = '$id_user';
-            $tt->status_pembayaran = "0";
-            $tt->notify = "0";
+            // $tt->id_user = $id_user;
+            // $tt->no_tracking = 'transaksi'.$tracktra;
+            // // $tt->msg_tracking = "";
+            // $tt->metode_pembayaran = 'm-banking';
+            // // $tt->id_pembayaran = '$id_user';
+            // $tt->status_pembayaran = "0";
+            // $tt->notify = "0";
 
-            $tt->save();
+            // $tt->save();
 
-            $id_tt_terakhir = $tt->id_tracking_transaksi;
+            // $id_tt_terakhir = $tt->id_tracking_transaksi;
 
         };
     }
