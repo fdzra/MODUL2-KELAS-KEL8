@@ -192,22 +192,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <div class="mb-3">
-                                            <div style="margin-left: 20px; margin-right: 20px;">
-                                                <label for="exampleInputEmail1" class="form-label">Subscribe Link</label>
-                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="https:/example-link.com" disabled>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="mb-3">
-                                            <div style="margin-left: 20px; margin-right: 20px;">
-                                                <label for="exampleInputEmail1" class="form-label">App Key</label>
-                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="gBkR6zu3TbKNeCy-" disabled>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                                 <div style="height: 25px;"></div>
                                 <div class="mb-3">
