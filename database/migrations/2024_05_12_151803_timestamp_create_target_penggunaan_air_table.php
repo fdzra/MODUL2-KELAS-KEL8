@@ -11,14 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('konsumsi', function (Blueprint $table) {
-            $table->id('id_konsumsi');
-            $table->string('device_UID');
-            $table->date('tanggal');
-            $table->integer('jumlah_konsumsi');
+        Schema::create('target_penggunaan_air', function (Blueprint $table) {
+            $table->id();
+            $table->float('limit_penggunaan_air');
             $table->timestamps();
-
-            $table->foreign('device_UID')->references('device_UID')->on('perangkat');
         });
     }
 
@@ -27,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('konsumsi');
+        //
     }
 };

@@ -10,20 +10,20 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
-        Schema::create('detail_perangkat', function (Blueprint $table) {
-            $table->id(); // Corrected primary key definition
-            $table->string('nama_perangkat');
-            $table->string('tipe_perangkat');
-            $table->timestamps();
-        });
-    }
+{
+    Schema::create('pemasangan', function (Blueprint $table) {
+        $table->id('id_pemasangan');
+        $table->string('nama_pelanggan');
+        $table->text('alamat');
+        $table->timestamps();
+    });
+}
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('detail_perangkat');
+        Schema::dropIfExists('pemasangan');
     }
 };

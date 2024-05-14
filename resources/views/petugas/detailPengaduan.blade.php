@@ -111,27 +111,27 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-lg-0">
+                                    <div class="col-lg-4 margin-left: 20px;">
                                         <div class="mb-3">
-                                            <div style="margin-left: 50px;">
-                                                <i class="fas fa-battery-full" style="color: #28a745;"></i>
-                                                <span class="text-success">90%</span>
+                                            <div style="margin-left: 20px; margin-right:5px;">
+                                                <label for="exampleInputEmail1" class="form-label">Status  Laporan Pengaduan</label>
+                                                <label for="exampleInputEmail1" class="form-label" style="color: red;">Belum Diproses</label>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-0">
+                                    <div class="col-lg-4">
                                         <div class="mb-3">
-                                            <div style="margin-left: 20px;">
-                                                <i class="fas fa-plug"></i>
-                                                <span>Connected</span>
+                                            <div style="margin-left: 20px; margin-right:20px;">
+                                                <label for="exampleInputEmail1" class="form-label">Tanggal Pengaduan</label>
+                                                <label for="exampleInputEmail1" class="form-label">10.15 23/02/2023</label>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-0">
+                                    <div class="col-lg-4">
                                         <div class="mb-3">
-                                            <div style="margin-left: 20px;">
-                                                <i class="fas fa-signal" style="color: #e60927"></i>
-                                                <span class="text-danger">Weak</span>
+                                            <div style="margin-left: 5px; margin-right:20px;">
+                                                <label for="exampleInputEmail1" class="form-label">Terakhir Diperbaharui</label>
+                                                <label for="exampleInputEmail1" class="form-label">10.15 23/02/2023</label>
                                             </div>
                                         </div>
                                     </div>
@@ -145,35 +145,27 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-lg-6 margin-left: 20px;">
+                                    <div class="col-lg-4 margin-left: 20px;">
                                         <div class="mb-3">
-                                            <div style="margin-left: 20px; margin-right:20px;">
-                                                <label for="exampleInputEmail1" class="form-label">Device UID</label>
+                                            <div style="margin-left: 20px; margin-right:5px;">
+                                                <label for="exampleInputEmail1" class="form-label">Kategori Laporan Pengaduan</label>
                                                 <input type="text" id="disabledTextInput" class="form-control" placeholder="8CF957200007491C" disabled>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <div class="mb-3">
-                                            <div style="margin-left: 20px; margin-right:20px;">
-                                                <label for="exampleInputEmail1" class="form-label">Device EUI</label>
+                                            <div style="margin-left: 5px; margin-right:5px;">
+                                                <label for="exampleInputEmail1" class="form-label">Nama Lengkap</label>
                                                 <input type="text" id="disabledTextInput" class="form-control" placeholder="gBkR6zu3TbKNeCy-" disabled>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <div class="mb-3">
-                                            <div style="margin-left: 20px; margin-right:20px;">
-                                                <label for="exampleInputEmail1" class="form-label">Subscribe Link</label>
+                                            <div style="margin-left: 5px; margin-right:20px;">
+                                                <label for="exampleInputEmail1" class="form-label">Nomor Telepon</label>
                                                 <input type="text" id="disabledTextInput" class="form-control" placeholder="https:/example-link.com" disabled>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="mb-3">
-                                            <div style="margin-left: 20px; margin-right:20px;">
-                                                <label for="exampleInputEmail1" class="form-label">App Key</label>
-                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="gBkR6zu3TbKNeCy-" disabled>
                                             </div>
                                         </div>
                                     </div>

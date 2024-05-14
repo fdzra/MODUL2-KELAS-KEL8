@@ -105,7 +105,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-uppercase mb-2">Belum Diproses</div>
-                                            <div class="h2 mb-0 font-weight-bold text-primary"><i class="fas fa-clock"></i> 25</div>
+                                            <div class="h2 mb-0 font-weight-bold text-primary"><i class="fas fa-clock"></i> {{ $belumDiprosesCount }}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -117,7 +117,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-uppercase mb-2">Sedang Diproses</div>
-                                            <div class="h2 mb-0 font-weight-bold text-warning"><i class="fas fa-spinner"></i> 10</div>
+                                            <div class="h2 mb-0 font-weight-bold text-warning"><i class="fas fa-spinner"></i> {{ $sedangDiprosesCount }}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -129,7 +129,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-uppercase mb-2">Sudah Selesai</div>
-                                            <div class="h2 mb-0 font-weight-bold text-success"><i class="fas fa-check"></i> 65</div>
+                                            <div class="h2 mb-0 font-weight-bold text-success"><i class="fas fa-check"></i> {{ $sudahSelesaiCount }}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -156,26 +156,37 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach ($requestPemasangan as $request)
+                                            @php
+                                                $statusColor = '';
+                                                switch($request->status) {
+                                                    case 'Selesai':
+                                                        $statusColor = 'badge badge-success'; // Hijau
+                                                        break;
+                                                    case 'Sedang Diproses':
+                                                        $statusColor = 'badge badge-warning'; // Kuning
+                                                        break;
+                                                    default:
+                                                        $statusColor = 'badge badge-danger'; // Merah
+                                                }
+                                            @endphp
                                             <tr>
-                                                <td>1</td>
-                                                <td><span class="badge badge-primary">Belum Diproses</span></td>
-                                                <td>John Doe</td>
-                                                <td>2023-05-07 10:30:22</td>
-                                                <td><a class="btn btn-sm btn-primary" href="/admin/petugas/formRequestLokasi">Tampilkan Detail</a></td>
+                                                <td>{{ $request->id }}</td>
+                                                <td>
+                                                    <span class="badge badge-{{ $statusColor }}">{{ $request->status }}</span>
+                                                </td>
+                                                <td>{{ $request->nama_pelanggan }}</td>
+                                                <td>{{ $request->tanggal_pengajuan }}</td>
+                                                <td>
+                                                    <a class="btn btn-sm btn-primary" href="{{ route('request.lokasi', $request->id) }}">Tampilkan Detail</a>
+                                                </td>
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td><span class="badge badge-warning">Sedang Diproses</span></td>
-                                                <td>Jane Smith</td>
-                                                <td>2023-05-06 15:45:10</td>
-                                                <td><a class="btn btn-sm btn-primary" href="/admin/petugas/formRequestLokasi">Tampilkan Detail</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td><span class="badge badge-success">Sudah Selesai</span></td>
-                                                <td>Michael Johnson</td>
-                                                <td>2023-05-05 09:12:45</td>
-                                                <td><a class="btn btn-sm btn-primary" href="/admin/petugas/formRequestLokasi">Tampilkan Detail</a></td>
+                                            @endforeach
+                                            @if(session('success'))
+                                                <div class="alert alert-success">
+                                                    {{ session('success') }}
+                                                </div>
+                                            @endif
                                             </tr>
                                         </tbody>
                                     </table>

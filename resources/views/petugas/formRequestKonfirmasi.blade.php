@@ -125,7 +125,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col-xl-12 col-lg-7">
                             <div class="card shadow mb-4">
@@ -188,22 +187,6 @@
                                         <div class="mb-3">
                                             <div style="margin-left: 20px; margin-right: 20px;">
                                                 <label for="exampleInputEmail1" class="form-label">Device EUI</label>
-                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="gBkR6zu3TbKNeCy-" disabled>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="mb-3">
-                                            <div style="margin-left: 20px; margin-right: 20px;">
-                                                <label for="exampleInputEmail1" class="form-label">Subscribe Link</label>
-                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="https:/example-link.com" disabled>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="mb-3">
-                                            <div style="margin-left: 20px; margin-right: 20px;">
-                                                <label for="exampleInputEmail1" class="form-label">App Key</label>
                                                 <input type="text" id="disabledTextInput" class="form-control" placeholder="gBkR6zu3TbKNeCy-" disabled>
                                             </div>
                                         </div>
@@ -282,9 +265,12 @@
                 </div>
                 <div class="row">
                     <div class="col-xl-11 col-md-14 mb-14 d-flex justify-content-start align-items-center" style="margin-left: 30px;">
-                        <a class="btn btn-sm btn-success" href="/admin/petugas/formRequestIntegrasi">Back</a>
+                        <a class="btn btn-sm btn-success" href="{{ route('request.integrasi', $request->id) }}">Back</a>
                         <div class="col-xl-11 col-md-14 mb-14 d-flex justify-content-end align-items-center" style="margin-left: 70px;">
-                            <a class="btn btn-sm btn-success" href="/admin/petugas">Konfirmasi Pemasangan</a>
+                            <form action="{{ route('request.selesai', $request->id) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-success">Konfirmasi Pemasangan</button>
+                            </form>
                         </div>
                     </div>
                 </div>

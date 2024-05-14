@@ -146,7 +146,7 @@
                                         <div class="mb-3">
                                             <div style="margin-left: 20px; margin-right: 20px;">
                                                 <label for="exampleInputEmail1" class="form-label">Device UID</label>
-                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="8CF957200007491C" disabled>
+                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="8CF957200007491C">
                                             </div>
                                         </div>
                                     </div>
@@ -158,22 +158,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <div class="mb-3">
-                                            <div style="margin-left: 20px; margin-right: 20px;">
-                                                <label for="exampleInputEmail1" class="form-label">Subscribe Link</label>
-                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="https:/example-link.com" disabled>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="mb-3">
-                                            <div style="margin-left: 20px; margin-right: 20px;">
-                                                <label for="exampleInputEmail1" class="form-label">App Key</label>
-                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="gBkR6zu3TbKNeCy-" disabled>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -181,9 +165,9 @@
                 </div>
                 <div class="row">
                     <div class="col-xl-11 col-md-14 mb-14 d-flex justify-content-start align-items-center" style="margin-left: 30px;">
-                        <a class="btn btn-sm btn-success" href="/admin/petugas/formRequestPemasangan">Back</a>
+                        <a class="btn btn-sm btn-success" href="{{ route('request.pemasangan', $request->id) }}">Back</a>
                         <div class="col-xl-11 col-md-14 mb-14 d-flex justify-content-end align-items-center" style="margin-left: 70px;">
-                            <a class="btn btn-sm btn-success" href="/admin/petugas/formRequestKonfirmasi">Submit Formulir Integrasi</a>
+                            <a class="btn btn-sm btn-success" href="{{ route('request.konfirmasi', $request->id) }}">Submit Formulir Integrasi</a>
                         </div>
                     </div>
                 </div>

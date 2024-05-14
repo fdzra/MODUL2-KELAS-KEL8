@@ -172,9 +172,9 @@
                 </div>
                 <div class="row">
                     <div class="col-xl-11 col-md-14 mb-14 d-flex justify-content-start align-items-center" style="margin-left: 30px;">
-                        <a class="btn btn-sm btn-success" href="/admin/petugas/formRequestLokasi">Back</a>
+                        <a class="btn btn-sm btn-success" href="{{ route('request.lokasi', $request->id) }}">Back</a>
                         <div class="col-xl-11 col-md-14 mb-14 d-flex justify-content-end align-items-center" style="margin-left: 70px;">
-                            <a class="btn btn-sm btn-success" href="/admin/petugas/formRequestIntegrasi">Submit Formulir Pemasangan</a>
+                            <a class="btn btn-sm btn-success" href="{{ route('request.integrasi', $request->id) }}">Submit Formulir Pemasangan</a>
                         </div>
                     </div>
                 </div>
