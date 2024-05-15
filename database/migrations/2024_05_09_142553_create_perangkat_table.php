@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('perangkat', function (Blueprint $table) {
             $table->bigIncrements('id_perangkat');
+            $table->string('id_pelanggan');
+            $table->string('nama_pelanggan');
+            $table->string('kecamatan_pelanggan');
             $table->tinyInteger('status');
+            $table->string('nama_perangkat');
+            $table->string('uid_perangkat');
             $table->integer('penggunaan_debit_air');
             $table->timestamps();
         });
