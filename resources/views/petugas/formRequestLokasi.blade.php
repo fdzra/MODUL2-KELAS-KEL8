@@ -99,28 +99,21 @@
                 <div class="container-fluid">
                     <!-- Card diatas Lokasi Pemasangan, Form Pemasangan, Form Integrasi, dan Konfirmasi Pemasangan -->
                     <div class="row">
-                        <div class="col-xl-3 col-md-4 mb-4">
+                        <div class="col-xl-4 col-md-4 mb-4">
                             <div class="nav-link card shadow py-2 px-3 bg-success" style="height: 50px;">
                                 <div class="card-body d-flex justify-content-center align-items-center">
                                     <span class="text-sm font-weight-bold text-uppercase mb-2 text-dark">Lokasi Pemasangan</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-md-4 mb-4">
+                        <div class="col-xl-4 col-md-4 mb-4">
                             <div class="nav-link card shadow py-2 px-3" style="height: 50px;">
                                 <div class="card-body d-flex justify-content-center align-items-center">
                                     <span class="text-sm font-weight-bold text-uppercase mb-2 text-dark">Form Pemasangan</span></a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-md-4 mb-4">
-                            <div class="nav-link card shadow py-2 px-3"style="height: 50px;">
-                                <div class="card-body d-flex justify-content-center align-items-center">
-                                    <span class="text-sm font-weight-bold text-uppercase mb-2 text-dark">Form Integrasi</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-md-4 mb-4">
+                        <div class="col-xl-4 col-md-4 mb-4">
                             <div class="nav-link card shadow py-2 px-3" style="height: 50px;">
                                 <div class="card-body d-flex justify-content-center align-items-center">
                                     <span class="text-sm font-weight-bold text-uppercase mb-2 text-dark">Konfirmasi Pemasangan</span></a>

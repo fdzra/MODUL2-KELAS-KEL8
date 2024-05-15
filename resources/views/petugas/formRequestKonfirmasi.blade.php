@@ -96,28 +96,21 @@
 
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-xl-3 col-md-4 mb-4">
+                        <div class="col-xl-4 col-md-4 mb-4">
                             <div class="nav-link card shadow py-2 px-3 bg-success" style="height: 50px;">
                                 <div class="card-body d-flex justify-content-center align-items-center">
                                     <span class="text-sm font-weight-bold text-uppercase mb-2 text-dark">Lokasi Pemasangan</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-md-4 mb-4">
+                        <div class="col-xl-4 col-md-4 mb-4">
                             <div class="nav-link card shadow py-2 px-3 bg-success" style="height: 50px;">
                                 <div class="card-body d-flex justify-content-center align-items-center">
                                     <span class="text-sm font-weight-bold text-uppercase mb-2 text-dark">Form Pemasangan</span></a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-md-4 mb-4">
-                            <div class="nav-link card shadow py-2 px-3 bg-success" style="height: 50px;">
-                                <div class="card-body d-flex justify-content-center align-items-center">
-                                    <span class="text-sm font-weight-bold text-uppercase mb-2 text-dark">Form Integrasi</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-md-4 mb-4">
+                        <div class="col-xl-4 col-md-4 mb-4">
                             <div class="nav-link card shadow py-2 px-3 bg-success" style="height: 50px;">
                                 <div class="card-body d-flex justify-content-center align-items-center">
                                     <span class="text-sm font-weight-bold text-uppercase mb-2 text-dark">Konfirmasi Pemasangan</span></a>
@@ -178,16 +171,16 @@
                                     <div class="col-lg-6 margin-left: 20px;">
                                         <div class="mb-3">
                                             <div style="margin-left: 20px; margin-right: 20px;">
-                                                <label for="exampleInputEmail1" class="form-label">Device UID</label>
-                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="8CF957200007491C" disabled>
+                                                <label for="exampleInputEmail1" class="form-label">Nama Device</label>
+                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="{{ $request->nama_perangkat }}" disabled>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="mb-3">
                                             <div style="margin-left: 20px; margin-right: 20px;">
-                                                <label for="exampleInputEmail1" class="form-label">Device EUI</label>
-                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="gBkR6zu3TbKNeCy-" disabled>
+                                                <label for="exampleInputEmail1" class="form-label">Device UID</label>
+                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="{{ $request->uid_perangkat }}" disabled>
                                             </div>
                                         </div>
                                     </div>
@@ -265,7 +258,7 @@
                 </div>
                 <div class="row">
                     <div class="col-xl-11 col-md-14 mb-14 d-flex justify-content-start align-items-center" style="margin-left: 30px;">
-                        <a class="btn btn-sm btn-success" href="{{ route('request.integrasi', $request->id) }}">Back</a>
+                        <a class="btn btn-sm btn-success" href="{{ route('request.pemasangan', $request->id) }}">Back</a>
                         <div class="col-xl-11 col-md-14 mb-14 d-flex justify-content-end align-items-center" style="margin-left: 70px;">
                             <form action="{{ route('request.selesai', $request->id) }}" method="POST">
                                 @csrf

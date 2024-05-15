@@ -31,9 +31,39 @@ class PetugasController extends Controller
         return view('petugas.formRequestPemasangan', compact('request'));
     }
 
-    public function formRequestIntegrasi($id){
-        $request = DB::table('request_pemasangan')->where('id', $id)->first();
-        return view('petugas.formRequestIntegrasi', compact('request'));
+    public function store_pemasangan(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'nama_perangkat' => 'required',
+            'uid_perangkat' => 'required',
+            'foto_pemasangan' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ],[
+            'nama_perangkat.required'=>'NAMA DEVICE wajib diisi',
+            'uid_perangkat.required'=>'DEVICE UID wajib diisi',
+            'foto_pemasangan.required'=>'FOTO PEMASANGAN wajib diisi',
+        ]);
+
+        $requestPemasangan = DB::table('request_pemasangan')->where('id', $id)->first();
+
+        if ($request->hasFile('foto_pemasangan')) {
+            $foto = $request->file('foto_pemasangan');
+            $nama_foto = time() . '_' . $foto->getClientOriginalName();
+            $foto->move(public_path('uploads'), $nama_foto);
+            $foto_path = 'uploads/' . $nama_foto;
+        } else {
+            $foto_path = null;
+        }
+
+        DB::table('request_pemasangan')
+            ->where('id', $id)
+            ->update([
+                'nama_perangkat' => $request->nama_perangkat,
+                'uid_perangkat' => $request->uid_perangkat,
+                'foto_pemasangan' => $foto_path,
+                'status' => 'Pemasangan Selesai'
+            ]);
+
+        return redirect()->route('request.konfirmasi', $id);
     }
 
     public function formRequestKonfirmasi($id){

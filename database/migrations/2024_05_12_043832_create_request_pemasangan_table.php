@@ -21,6 +21,9 @@ class CreateRequestPemasanganTable extends Migration
             $table->string('status')->default('Belum Diproses');
             $table->string('umur');
             $table->string('kecamatan_pelanggan');
+            $table->string('foto_pemasangan');
+            $table->string('nama_perangkat');
+            $table->string('uid_perangkat');
             $table->timestamp('tanggal_pengajuan')->nullable();
             $table->timestamp('terakhir_diupdate')->nullable();
             $table->timestamps();
