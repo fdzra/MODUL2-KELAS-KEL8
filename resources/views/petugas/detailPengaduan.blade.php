@@ -98,6 +98,17 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-xl-12 col-lg-7">
+                            @if ($errors->any())
+                            <div class="pt-3">
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $item)
+                                            <li>{{ $item }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                            @endif
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <p class="m-0 font-weight-bold text-dark">FORMULIR PEMASANGAN</p>
@@ -111,27 +122,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                @foreach ($detailPengaduan as $detail)
-                                    @php
-                                    $statusColor = '';
-                                    switch($detail->status_pengaduan) {
-                                        case 'Selesai':
-                                            $statusColor = 'badge badge-success'; // Hijau
-                                            break;
-                                        case 'Sedang Diproses':
-                                            $statusColor = 'badge badge-warning'; // Kuning
-                                            break;
-                                        default:
-                                            $statusColor = 'badge badge-danger'; // Merah
-                                    }
-                                    @endphp
-                                @endforeach
                                 <div class="row">
                                     <div class="col-lg-4 margin-left: 20px;">
                                         <div class="mb-3">
                                             <div style="margin-left: 20px; margin-right:5px;">
                                                 <p class="form-label">Status Laporan Pengaduan</p>
-                                                <p class="form-label" style="color: red;">{{ $detail->status_pengaduan }}</p>
+                                                <p class="form-label" style="color: red;">{{ $detailPengaduan->status_pengaduan }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -139,7 +135,7 @@
                                         <div class="mb-3">
                                             <div style="margin-left: 5px; margin-right:5px;">
                                                 <p class="form-label">Tanggal Pengaduan</p>
-                                                <p class="form-label">{{ $detail->waktu_pengaduan }}</p>
+                                                <p class="form-label">{{ $detailPengaduan->waktu_pengaduan }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -147,7 +143,7 @@
                                         <div class="mb-3">
                                             <div style="margin-left: 5px; margin-right:20px;">
                                                 <p class="form-label">Terakhir Diperbaharui</p>
-                                                <p class="form-label">{{ $detail->terakhir_diupdate }}</p>
+                                                <p class="form-label">{{ $detailPengaduan->terakhir_diupdate }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -165,7 +161,7 @@
                                         <div class="mb-3">
                                             <div style="margin-left: 20px; margin-right:5px;">
                                                 <label for="exampleInputEmail1" class="form-label">Kategori Laporan Pengaduan</label>
-                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="{{ $detail->kategori }}" disabled>
+                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="{{ $detailPengaduan->kategori }}" disabled>
                                             </div>
                                         </div>
                                     </div>
@@ -173,7 +169,7 @@
                                         <div class="mb-3">
                                             <div style="margin-left: 5px; margin-right:5px;">
                                                 <label for="exampleInputEmail1" class="form-label">Nama Lengkap</label>
-                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="{{ $detail->nama_pelanggan }}" disabled>
+                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="{{ $detailPengaduan->nama_pelanggan }}" disabled>
                                             </div>
                                         </div>
                                     </div>
@@ -181,7 +177,7 @@
                                         <div class="mb-3">
                                             <div style="margin-left: 5px; margin-right:20px;">
                                                 <label for="exampleInputEmail1" class="form-label">Nomor Telepon</label>
-                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="{{ $detail->no_handphone }}" disabled>
+                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="{{ $detailPengaduan->no_handphone }}" disabled>
                                             </div>
                                         </div>
                                     </div>
@@ -200,7 +196,7 @@
                                     <div class="col-lg-12">
                                         <div style="margin-left: 20px;">
                                             <label for="exampleInputEmail1" class="form-label">DESKRIPSI LAPORAN PENGADUAN</label>
-                                            <textarea class="form-control" rows="5" disabled readonly>{{ $detail->deskripsi }}</textarea>
+                                            <textarea class="form-control" rows="5" disabled readonly>{{ $detailPengaduan->deskripsi }}</textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -210,44 +206,47 @@
                     </div>
                 </div>
                 <!-- Card Konfirmasi Penyelesaian Masalah -->
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-xl-12 col-lg-7">
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <p class="m-0 font-weight-bold text-dark">KONFIRMASI PENYELESAIAN MASALAH</p>
-                                    <h5 class="m-0 text-grey"></h5>
-                                </div>
-                                <div style="height: 25px;"></div>
-                                <div class="mb-3">
-                                    <div class="col-lg-12">
-                                        <div style="margin-left: 20px;">
-                                            <label for="exampleInputEmail1" class="form-label">BUKTI PENYELESAIAN PENGADUAN</label>
+                <form action="{{ route('pengaduan.selesaikan', $detailPengaduan->id) }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-7">
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <p class="m-0 font-weight-bold text-dark">KONFIRMASI PENYELESAIAN MASALAH</p>
+                                        <h5 class="m-0 text-grey"></h5>
+                                    </div>
+                                    <div style="height: 25px;"></div>
+                                    <div class="mb-3">
+                                        <div class="col-lg-12">
+                                            <div style="margin-left: 20px;">
+                                                <label for="bukti_pengaduan" class="form-label">BUKTI PENYELESAIAN PENGADUAN</label>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div style="margin-left: 20px;">
                                     <div style="margin-left: 20px;">
-                                        <section tabindex="-1" data-unify="Card" class="">
-                                            <input type="file" id="bukti_pengaduan" name="bukti_pengaduan" accept="image/jpeg, .jpeg, .jpg, image/png, .png" data-testid="input-change-picture">
-                                        </section>
+                                        <div style="margin-left: 20px; margin-right: 20px;">
+                                            <section tabindex="-1" data-unify="Card" class="">
+                                                <input type="file" class="form-control" id="bukti_pengaduan" name="bukti_pengaduan" accept="image/jpeg, .jpeg, .jpg, image/png, .png" data-testid="input-change-picture">
+                                            </section>
+                                        </div>
+                                        <div style="height: 30px;"></div>
                                     </div>
-                                    <div style="height: 30px;"></div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <!-- Back and Submit -->
-                <div class="row">
-                    <div class="col-xl-11 col-md-14 mb-14 d-flex justify-content-start align-items-center" style="margin-left: 30px;">
-                        <a class="btn btn-sm btn-success" href="/admin/petugas/laporanPengaduan">Back</a>
-                        <div class="col-xl-11 col-md-14 mb-14 d-flex justify-content-end align-items-center" style="margin-left: 70px;">
-                            <a class="btn btn-sm btn-success" href="/admin/petugas/laporanPengaduan">Selesaikan Laporan Pengaduan</a>
+                        <!-- Back and Submit -->
+                        <div class="row">
+                            <div class="col-xl-11 col-md-14 mb-14 d-flex justify-content-start align-items-center" style="margin-left: 30px;">
+                                <a class="btn btn-sm btn-success" href="/admin/petugas/laporanPengaduan">Back</a>
+                                <div class="col-xl-11 col-md-14 mb-14 d-flex justify-content-end align-items-center" style="margin-left: 130px;">
+                                    <button type="submit" class="btn btn-success">Selesaikan Laporan Pengaduan</button>
+                                </div>
+                            </div>
                         </div>
+                        <div style="height: 50px;"></div>
                     </div>
-                </div>
-                <div style="height: 50px;"></div>
+                </form>
             </div>
         </div>
     </div>

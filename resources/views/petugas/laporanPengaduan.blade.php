@@ -184,9 +184,9 @@
                                                 <td>
                                                     <form action="{{ route('pengaduan.detail', $pengaduan->id) }}" method="POST">
                                                         @csrf
+                                                        <input type="hidden" name="status_pengaduan" value="Sedang Diproses">
                                                         <button type="submit" class="btn btn-primary">Tampilkan Detail</button>
                                                     </form>
-                                                    {{-- <a class="btn btn-sm btn-primary" href="{{ route('pengaduan.detail', $pengaduan->id) }}">Tampilkan Detail</a> --}}
                                                 </td>
                                             </tr>
                                             @endforeach

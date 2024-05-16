@@ -91,12 +91,47 @@ class PetugasController extends Controller
         // Contoh pengambilan jumlah "Belum Diproses" dari database
         $belumDiprosesPengaduanCount = DB::table('pengaduan')->where('status_pengaduan', 'Belum Diproses')->count();
         $sedangDiprosesPengaduanCount = DB::table('pengaduan')->where('status_pengaduan', 'Sedang Diproses')->count();
-        $sudahSelesaiPengaduanCount = DB::table('pengaduan')->where('status_pengaduan', 'Sudah Selesai')->count();
+        $sudahSelesaiPengaduanCount = DB::table('pengaduan')->where('status_pengaduan', 'Selesai')->count();
         return view('petugas.laporanPengaduan', compact('laporanPengaduan', 'belumDiprosesPengaduanCount', 'sedangDiprosesPengaduanCount', 'sudahSelesaiPengaduanCount'));
     }
 
-    public function detailPengaduan(){
-        $detailPengaduan = DB::table('pengaduan')->get();
+    public function detailPengaduan(Request $request, $id)
+    {
+        if ($request->has('status_pengaduan')) {
+            DB::table('pengaduan')
+                ->where('id', $id)
+                ->update(['status_pengaduan' => $request->input('status_pengaduan')]);
+        }
+
+        $detailPengaduan = DB::table('pengaduan')->where('id', $id)->first();
         return view('petugas.detailPengaduan', compact('detailPengaduan'));
+    }
+
+    public function selesaikanPengaduan(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'bukti_pengaduan' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ],[
+            'bukti_pengaduan.required'=>'BUKTI PENYELESAIAN PENGADUAN wajib diisi',
+        ]);
+
+        if ($request->hasFile('bukti_pengaduan')) {
+            $bukti_pengaduan = $request->file('bukti_pengaduan');
+            $nama_bukti = time() . '_' . $bukti_pengaduan->getClientOriginalName();
+            $bukti_pengaduan->move(public_path('uploads'), $nama_bukti);
+            $bukti_path = 'uploads/' . $nama_bukti;
+        } else {
+            $bukti_path = null;
+        }
+
+        DB::table('pengaduan')
+            ->where('id', $id)
+            ->update([
+                'bukti_pengaduan' => $bukti_path,
+                'status_pengaduan' => 'Selesai',
+                'terakhir_diupdate' => now()
+            ]);
+
+        return redirect()->route('pengaduan.dashboard')->with('success', 'Laporan pengaduan berhasil diselesaikan.');
     }
 }

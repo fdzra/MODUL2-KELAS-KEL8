@@ -45,6 +45,7 @@ Route::middleware(['auth'])->group(function(){
     Route::post('/admin/petugas/formRequestLokasi/{id}/selesai', [PetugasController::class, 'submitSelesai'])->name('request.selesai')->middleware(UserAkses::class . ':petugas');
     Route::match(['get', 'post'],'/admin/petugas/laporanPengaduan', [PetugasController::class, 'laporanPengaduan'])->name('pengaduan.dashboard')->middleware(UserAkses::class . ':petugas');
     Route::match(['get', 'post'],'/admin/petugas/detailPengaduan/{id}', [PetugasController::class, 'detailPengaduan'])->name('pengaduan.detail')->middleware(UserAkses::class . ':petugas');
+    Route::match(['get', 'post'], '/admin/petugas/detailPengaduan/{id}/selesaikan', [PetugasController::class, 'selesaikanPengaduan'])->name('pengaduan.selesaikan')->middleware(UserAkses::class . ':petugas');
 
     // INI BAGIAN ADMIN
     Route::get('/admin/admin', [AdminController::class, 'admin'])->middleware(UserAkses::class . ':admin');
