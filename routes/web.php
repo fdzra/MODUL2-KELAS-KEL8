@@ -37,7 +37,7 @@ Route::middleware(['auth'])->group(function(){
     // INI BAGIAN PETUGAS
     Route::get('/admin/petugas', [AdminController::class, 'petugas'])->name('petugas.dashboard')->middleware(UserAkses::class . ':petugas');
     Route::get('/admin/petugas/kelolaPerangkat', [PetugasController::class, 'index'])->middleware(UserAkses::class . ':petugas');
-    Route::get('/admin/petugas/detailPerangkat', [PetugasController::class, 'detailPerangkat'])->middleware(UserAkses::class . ':petugas');
+    Route::get('/admin/petugas/detailPerangkat/{id}', [PetugasController::class, 'detailPerangkat'])->name('perangkat.detail')->middleware(UserAkses::class . ':petugas');
     Route::get('/admin/petugas/formRequestLokasi/{id}', [PetugasController::class, 'formRequestLokasi'])->name('request.lokasi')->middleware(UserAkses::class . ':petugas');
     Route::match(['get', 'post'],'/admin/petugas/formRequestPemasangan/{id}', [PetugasController::class, 'formRequestPemasangan'])->name('request.pemasangan')->middleware(UserAkses::class . ':petugas');
     Route::match(['get', 'post'],'/admin/petugas/formRequestPemasangan/{id}/submit', [PetugasController::class, 'store_pemasangan'])->name('store.pemasangan')->middleware(UserAkses::class . ':petugas');
