@@ -87,10 +87,16 @@ class PetugasController extends Controller
     }
 
     public function laporanPengaduan(){
-        return view('petugas.laporanPengaduan');
+        $laporanPengaduan = DB::table('pengaduan')->get();
+        // Contoh pengambilan jumlah "Belum Diproses" dari database
+        $belumDiprosesPengaduanCount = DB::table('pengaduan')->where('status_pengaduan', 'Belum Diproses')->count();
+        $sedangDiprosesPengaduanCount = DB::table('pengaduan')->where('status_pengaduan', 'Sedang Diproses')->count();
+        $sudahSelesaiPengaduanCount = DB::table('pengaduan')->where('status_pengaduan', 'Sudah Selesai')->count();
+        return view('petugas.laporanPengaduan', compact('laporanPengaduan', 'belumDiprosesPengaduanCount', 'sedangDiprosesPengaduanCount', 'sudahSelesaiPengaduanCount'));
     }
 
     public function detailPengaduan(){
-        return view('petugas.detailPengaduan');
+        $detailPengaduan = DB::table('pengaduan')->get();
+        return view('petugas.detailPengaduan', compact('detailPengaduan'));
     }
 }

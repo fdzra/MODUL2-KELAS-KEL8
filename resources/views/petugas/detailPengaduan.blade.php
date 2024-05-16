@@ -114,24 +114,24 @@
                                     <div class="col-lg-4 margin-left: 20px;">
                                         <div class="mb-3">
                                             <div style="margin-left: 20px; margin-right:5px;">
-                                                <label for="exampleInputEmail1" class="form-label">Status  Laporan Pengaduan</label>
-                                                <label for="exampleInputEmail1" class="form-label" style="color: red;">Belum Diproses</label>
+                                                <p class="form-label">Status Laporan Pengaduan</p>
+                                                <p class="form-label" style="color: red;">Belum Diproses</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="mb-3">
-                                            <div style="margin-left: 20px; margin-right:20px;">
-                                                <label for="exampleInputEmail1" class="form-label">Tanggal Pengaduan</label>
-                                                <label for="exampleInputEmail1" class="form-label">10.15 23/02/2023</label>
+                                            <div style="margin-left: 5px; margin-right:5px;">
+                                                <p class="form-label">Tanggal Pengaduan</p>
+                                                <p class="form-label">10.15 23/02/2023</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="mb-3">
                                             <div style="margin-left: 5px; margin-right:20px;">
-                                                <label for="exampleInputEmail1" class="form-label">Terakhir Diperbaharui</label>
-                                                <label for="exampleInputEmail1" class="form-label">10.15 23/02/2023</label>
+                                                <p class="form-label">Terakhir Diperbaharui</p>
+                                                <p class="form-label">10.15 23/02/2023</p>
                                             </div>
                                         </div>
                                     </div>

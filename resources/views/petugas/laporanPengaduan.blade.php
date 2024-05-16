@@ -105,7 +105,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-uppercase mb-2">Belum Diproses</div>
-                                            <div class="h2 mb-0 font-weight-bold text-primary"><i class="fas fa-clock"></i> 25</div>
+                                            <div class="h2 mb-0 font-weight-bold text-primary"><i class="fas fa-clock"></i> {{ $belumDiprosesPengaduanCount }}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -117,7 +117,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-uppercase mb-2">Sedang Diproses</div>
-                                            <div class="h2 mb-0 font-weight-bold text-warning"><i class="fas fa-spinner"></i> 10</div>
+                                            <div class="h2 mb-0 font-weight-bold text-warning"><i class="fas fa-spinner"></i> {{ $sedangDiprosesPengaduanCount }}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -129,7 +129,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-uppercase mb-2">Sudah Selesai</div>
-                                            <div class="h2 mb-0 font-weight-bold text-success"><i class="fas fa-check"></i> 65</div>
+                                            <div class="h2 mb-0 font-weight-bold text-success"><i class="fas fa-check"></i> {{ $sudahSelesaiPengaduanCount }}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -158,33 +158,39 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach ($laporanPengaduan as $pengaduan)
+                                            @php
+                                                $statusColor = '';
+                                                switch($pengaduan->status_pengaduan) {
+                                                    case 'Selesai':
+                                                        $statusColor = 'badge badge-success'; // Hijau
+                                                        break;
+                                                    case 'Sedang Diproses':
+                                                        $statusColor = 'badge badge-warning'; // Kuning
+                                                        break;
+                                                    default:
+                                                        $statusColor = 'badge badge-danger'; // Merah
+                                                }
+                                            @endphp
                                             <tr>
-                                                <td>01</td>
-                                                <td>10.15 23/02/2023</td>
-                                                <td>Software</td>
-                                                <td>PT01</td>
-                                                <td>John Doe</td>
-                                                <td><span class="badge badge-danger">Belum Diproses</span></td>
-                                                <td><a class="btn btn-sm btn-primary" href="/admin/petugas/detailPengaduan">Tampilkan Detail</a></td>
+                                                <td>{{ $pengaduan->id }}</td>
+                                                <td>{{ $pengaduan->waktu_pengaduan }}</td>
+                                                <td>{{ $pengaduan->kategori }}</td>
+                                                <td>{{ $pengaduan->id_pelanggan }}</td>
+                                                <td>{{ $pengaduan->nama_pelanggan }}</td>
+                                                <td>
+                                                    <span class="badge badge-{{ $statusColor }}">{{ $pengaduan->status_pengaduan }}</span>
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-sm btn-primary" href="{{ route('pengaduan.detail', $pengaduan->id) }}">Tampilkan Detail</a>
+                                                </td>
                                             </tr>
-                                            <tr>
-                                                <td>01</td>
-                                                <td>10.15 23/02/2023</td>
-                                                <td>Software</td>
-                                                <td>PT01</td>
-                                                <td>John Doe</td>
-                                                <td><span class="badge badge-warning">Sedang Diproses</span></td>
-                                                <td><a class="btn btn-sm btn-primary" href="/admin/petugas/detailPengaduan">Tampilkan Detail</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>01</td>
-                                                <td>10.15 23/02/2023</td>
-                                                <td>Software</td>
-                                                <td>PT01</td>
-                                                <td>John Doe</td>
-                                                <td><span class="badge badge-success">Sudah Selesai</span></td>
-                                                <td><a class="btn btn-sm btn-primary" href="/admin/petugas/detailPengaduan">Tampilkan Detail</a></td>
-                                            </tr>
+                                            @endforeach
+                                            @if(session('success'))
+                                                <div class="alert alert-success">
+                                                    {{ session('success') }}
+                                                </div>
+                                            @endif
                                         </tbody>
                                     </table>
                                     <div class="text-right">

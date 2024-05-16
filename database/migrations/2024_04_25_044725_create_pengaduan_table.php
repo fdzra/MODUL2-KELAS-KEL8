@@ -17,6 +17,9 @@ class CreatePengaduanTable extends Migration
             $table->id(); // Auto-increment primary key
             $table->string('kategori'); // Kolom untuk kategori pengaduan
             $table->text('deskripsi'); // Kolom untuk deskripsi pengaduan
+            $table->string('id_pelanggan');
+            $table->string('nama_pelanggan');
+            $table->string('no_handphone');
             $table->timestamp('waktu_pengaduan')->useCurrent(); // Kolom untuk waktu pengaduan (menggunakan waktu saat ini)
             $table->timestamp('terakhir_diupdate')->nullable(); // Kolom untuk waktu terakhir update (nullable, bisa diisi kemudian)
             $table->string('bukti_pengaduan')->nullable(); // Kolom untuk nama file bukti pengaduan (nullable, bisa diisi kemudian)
