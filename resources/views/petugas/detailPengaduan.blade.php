@@ -229,7 +229,7 @@
                                 <div style="margin-left: 20px;">
                                     <div style="margin-left: 20px;">
                                         <section tabindex="-1" data-unify="Card" class="">
-                                            <input type="file" id="profilePictureInput" name="profilePicture" accept="image/jpeg, .jpeg, .jpg, image/png, .png" data-testid="input-change-picture">
+                                            <input type="file" id="bukti_pengaduan" name="bukti_pengaduan" accept="image/jpeg, .jpeg, .jpg, image/png, .png" data-testid="input-change-picture">
                                         </section>
                                     </div>
                                     <div style="height: 30px;"></div>
