@@ -110,12 +110,27 @@
                                         </div>
                                     </div>
                                 </div>
+                                @foreach ($detailPengaduan as $detail)
+                                    @php
+                                    $statusColor = '';
+                                    switch($detail->status_pengaduan) {
+                                        case 'Selesai':
+                                            $statusColor = 'badge badge-success'; // Hijau
+                                            break;
+                                        case 'Sedang Diproses':
+                                            $statusColor = 'badge badge-warning'; // Kuning
+                                            break;
+                                        default:
+                                            $statusColor = 'badge badge-danger'; // Merah
+                                    }
+                                    @endphp
+                                @endforeach
                                 <div class="row">
                                     <div class="col-lg-4 margin-left: 20px;">
                                         <div class="mb-3">
                                             <div style="margin-left: 20px; margin-right:5px;">
                                                 <p class="form-label">Status Laporan Pengaduan</p>
-                                                <p class="form-label" style="color: red;">Belum Diproses</p>
+                                                <p class="form-label" style="color: red;">{{ $detail->status_pengaduan }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -123,7 +138,7 @@
                                         <div class="mb-3">
                                             <div style="margin-left: 5px; margin-right:5px;">
                                                 <p class="form-label">Tanggal Pengaduan</p>
-                                                <p class="form-label">10.15 23/02/2023</p>
+                                                <p class="form-label">{{ $detail->waktu_pengaduan }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -131,7 +146,7 @@
                                         <div class="mb-3">
                                             <div style="margin-left: 5px; margin-right:20px;">
                                                 <p class="form-label">Terakhir Diperbaharui</p>
-                                                <p class="form-label">10.15 23/02/2023</p>
+                                                <p class="form-label">{{ $detail->terakhir_diupdate }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -149,7 +164,7 @@
                                         <div class="mb-3">
                                             <div style="margin-left: 20px; margin-right:5px;">
                                                 <label for="exampleInputEmail1" class="form-label">Kategori Laporan Pengaduan</label>
-                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="8CF957200007491C" disabled>
+                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="{{ $detail->kategori }}" disabled>
                                             </div>
                                         </div>
                                     </div>
@@ -157,7 +172,7 @@
                                         <div class="mb-3">
                                             <div style="margin-left: 5px; margin-right:5px;">
                                                 <label for="exampleInputEmail1" class="form-label">Nama Lengkap</label>
-                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="gBkR6zu3TbKNeCy-" disabled>
+                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="{{ $detail->nama_pelanggan }}" disabled>
                                             </div>
                                         </div>
                                     </div>
@@ -165,7 +180,7 @@
                                         <div class="mb-3">
                                             <div style="margin-left: 5px; margin-right:20px;">
                                                 <label for="exampleInputEmail1" class="form-label">Nomor Telepon</label>
-                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="https:/example-link.com" disabled>
+                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="$detail->no_handphone" disabled>
                                             </div>
                                         </div>
                                     </div>
@@ -184,7 +199,7 @@
                                     <div class="col-lg-12">
                                         <div style="margin-left: 20px;">
                                             <label for="exampleInputEmail1" class="form-label">DESKRIPSI LAPORAN PENGADUAN</label>
-                                            <textarea id="deskripsiLaporan" class="form-control" placeholder="Masukkan deskripsi laporan pengaduan"></textarea>
+                                            <textarea class="form-control" rows="5" disabled readonly>{{ $detail->deskripsi }}</textarea>
                                         </div>
                                     </div>
                                 </div>
