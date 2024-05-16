@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('perangkat', function (Blueprint $table) {
-            $table->bigIncrements('id_perangkat');
+            $table->id();
+            $table->integer('id_perangkat');
             $table->string('id_pelanggan');
             $table->string('nama_pelanggan');
             $table->string('kecamatan_pelanggan');
-            $table->tinyInteger('status');
+            $table->string('status')->default('Aktif');
             $table->string('nama_perangkat');
-            $table->string('uid_perangkat');
             $table->integer('penggunaan_debit_air');
             $table->timestamps();
         });

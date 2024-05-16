@@ -11,11 +11,16 @@ use Spatie\FlareClient\View;
 class PetugasController extends Controller
 {
     public function index(){
-        return view('petugas.kelolaPerangkat');
+        $kelolaPerangkat = DB::table('perangkat')->get();
+        // Contoh pengambilan jumlah "Belum Diproses" dari database
+        $aktifCount = DB::table('perangkat')->where('status', 'Aktif')->count();
+        $nonAktifCount = DB::table('perangkat')->where('status', 'Non Aktif')->count();
+        return view('petugas.kelolaPerangkat', compact('kelolaPerangkat', 'aktifCount', 'nonAktifCount'));
     }
     
-    public function detailPerangkat(){
-        return view('petugas.detailPerangkat');
+    public function detailPerangkat($id){
+        $detailPerangkat = DB::table('perangkat')->where('id', $id)->first();
+        return view('petugas.detailPerangkat', compact('detailPerangkat')); 
     }
 
     public function formRequestLokasi($id) {

@@ -152,33 +152,17 @@
                                 <div class="row">
                                     <div class="col-lg-6 margin-left: 20px;">
                                         <div class="mb-3">
-                                            <div style="margin-left: 20px; margin-right:20px;">
+                                            <div style="margin-left: 20px; margin-right: 20px;">
+                                                <label for="exampleInputEmail1" class="form-label">Nama Device</label>
+                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="{{ $detailPerangkat->nama_perangkat }}" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <div style="margin-left: 20px; margin-right: 20px;">
                                                 <label for="exampleInputEmail1" class="form-label">Device UID</label>
-                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="8CF957200007491C" disabled>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="mb-3">
-                                            <div style="margin-left: 20px; margin-right:20px;">
-                                                <label for="exampleInputEmail1" class="form-label">Device EUI</label>
-                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="gBkR6zu3TbKNeCy-" disabled>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="mb-3">
-                                            <div style="margin-left: 20px; margin-right:20px;">
-                                                <label for="exampleInputEmail1" class="form-label">Subscribe Link</label>
-                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="https:/example-link.com" disabled>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="mb-3">
-                                            <div style="margin-left: 20px; margin-right:20px;">
-                                                <label for="exampleInputEmail1" class="form-label">App Key</label>
-                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="gBkR6zu3TbKNeCy-" disabled>
+                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="{{ $detailPerangkat->id_perangkat }}" disabled>
                                             </div>
                                         </div>
                                     </div>

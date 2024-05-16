@@ -105,7 +105,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-uppercase mb-2">Perangkat Aktif</div>
-                                            <div class="h2 mb-0 font-weight-bold text-primary"><i class="fas fa-power-off"></i> 25 Perangkat</div>
+                                            <div class="h2 mb-0 font-weight-bold text-primary"><i class="fas fa-power-off"></i> {{ $aktifCount }}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -117,7 +117,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-uppercase mb-2">Perangkat Non Aktif</div>
-                                            <div class="h2 mb-0 font-weight-bold text-warning"><i class="far fa-times-circle"></i> 10 Perangkat</div>
+                                            <div class="h2 mb-0 font-weight-bold text-warning"><i class="far fa-times-circle"></i> {{ $nonAktifCount }}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -137,7 +137,7 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>ID Perangkat</th>
+                                                <th>Device UID</th>
                                                 <th>ID Pelanggan</th>
                                                 <th>Nama Pelanggan</th>
                                                 <th>Kecamatan</th>
@@ -146,33 +146,31 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach ($kelolaPerangkat as $perangkat)
+                                            @php
+                                                $statusColor = '';
+                                                switch($perangkat->status) {
+                                                    case 'Aktif':
+                                                        $statusColor = 'badge badge-success'; // Hijau
+                                                        break;
+                                                    default:
+                                                        $statusColor = 'badge badge-danger'; // Merah
+                                                }
+                                            @endphp
                                             <tr>
-                                                <td>1</td>
-                                                <td>DV01</td>
-                                                <td>PT01</td>
-                                                <td>John Doe</td>
-                                                <td>Ujung Berung</td>
-                                                <td><span class="badge badge-success">Aktif</span></td>
-                                                <td><a class="btn btn-sm btn-primary" href="/admin/petugas/detailPerangkat">Tampilkan Detail</a></td>
+                                                <td>{{ $perangkat->id }}</td>
+                                                <td>{{ $perangkat->id_perangkat }}</td>
+                                                <td>{{ $perangkat->id_pelanggan }}</td>
+                                                <td>{{ $perangkat->nama_pelanggan }}</td>
+                                                <td>{{ $perangkat->kecamatan_pelanggan }}</td>
+                                                <td>
+                                                    <span class="badge badge-{{ $statusColor }}">{{ $perangkat->status }}</span>
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-sm btn-primary" href="{{ route('perangkat.detail', $perangkat->id) }}">Tampilkan Detail</a>
+                                                </td>
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>DV02</td>
-                                                <td>PT02</td>
-                                                <td>John Doe</td>
-                                                <td>Ujung Berung</td>
-                                                <td><span class="badge badge-success">Aktif</span></td>
-                                                <td><a class="btn btn-sm btn-primary" href="/admin/petugas/detailPerangkat">Tampilkan Detail</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>DV03</td>
-                                                <td>PT03</td>
-                                                <td>John Doe</td>
-                                                <td>Ujung Berung</td>
-                                                <td><span class="badge badge-danger">Non Aktif</span></td>
-                                                <td><a class="btn btn-sm btn-primary" href="/admin/petugas/detailPerangkat">Tampilkan Detail</a></td>
-                                            </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                     <div class="text-right">
