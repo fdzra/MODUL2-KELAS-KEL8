@@ -23,7 +23,7 @@ class CreatePengaduanTable extends Migration
             $table->timestamp('waktu_pengaduan')->useCurrent(); // Kolom untuk waktu pengaduan (menggunakan waktu saat ini)
             $table->timestamp('terakhir_diupdate')->nullable(); // Kolom untuk waktu terakhir update (nullable, bisa diisi kemudian)
             $table->string('bukti_pengaduan')->nullable(); // Kolom untuk nama file bukti pengaduan (nullable, bisa diisi kemudian)
-            $table->enum('status_pengaduan', ['Belum Diproses', 'Sedang Diproses', 'Sudah Selesai'])->default('Belum Diproses'); // Kolom untuk status pengaduan, defaultnya Belum Diproses
+            $table->string('status_pengaduan')->default('Belum Diproses'); // Kolom untuk status pengaduan, defaultnya Belum Diproses
             $table->timestamps(); // Kolom untuk created_at dan updated_at
             // Indeks untuk kolom kategori, status_pengaduan, dan waktu_pengaduan
             $table->index(['kategori', 'status_pengaduan', 'waktu_pengaduan']);

@@ -20,6 +20,7 @@
 </head>
 
 <body id="page-top">
+    
     <div id="wrapper">
         <ul class="navbar-nav bg-gradient-white sidebar sidebar-dark accordion" id="accordionSidebar">
             <a class="sidebar-brand d-flex align-items-center justify-content-center mt-4 p-3" href="/">
@@ -180,7 +181,7 @@
                                         <div class="mb-3">
                                             <div style="margin-left: 5px; margin-right:20px;">
                                                 <label for="exampleInputEmail1" class="form-label">Nomor Telepon</label>
-                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="$detail->no_handphone" disabled>
+                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="{{ $detail->no_handphone }}" disabled>
                                             </div>
                                         </div>
                                     </div>

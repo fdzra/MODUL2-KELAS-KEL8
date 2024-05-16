@@ -182,7 +182,11 @@
                                                     <span class="badge badge-{{ $statusColor }}">{{ $pengaduan->status_pengaduan }}</span>
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-primary" href="{{ route('pengaduan.detail', $pengaduan->id) }}">Tampilkan Detail</a>
+                                                    <form action="{{ route('pengaduan.detail', $pengaduan->id) }}" method="POST">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-primary">Tampilkan Detail</button>
+                                                    </form>
+                                                    {{-- <a class="btn btn-sm btn-primary" href="{{ route('pengaduan.detail', $pengaduan->id) }}">Tampilkan Detail</a> --}}
                                                 </td>
                                             </tr>
                                             @endforeach
