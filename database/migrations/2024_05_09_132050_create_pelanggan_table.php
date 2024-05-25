@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pelanggan', function (Blueprint $table) {
+        Schema::create('pelanggans', function (Blueprint $table) {
             $table->bigIncrements('id_pelanggan');
-            $table->integer('id_user');
-            $table->integer('id_perangkat');
-            $table->text('alamat_pelanggan');
-            $table->string('kecamatan_pelanggan');
-            $table->string('kota_pelanggan');
-            $table->string('no_handphone');
+            $table->integer('id_user')->nullable();
+            $table->string('pelanggan_name')->nullable();
+            $table->string('pelanggan_email')->nullable();
+            $table->integer('id_perangkat')->nullable();
+            $table->text('alamat_pelanggan')->nullable();
+            $table->string('kecamatan_pelanggan')->nullable();
+            $table->string('kota_pelanggan')->nullable();
+            $table->string('no_handphone')->nullable();
             $table->timestamps();
         });
     }
