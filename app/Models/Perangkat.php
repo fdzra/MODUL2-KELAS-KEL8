@@ -9,7 +9,11 @@ class Perangkat extends Model
 {
     protected $table= 'perangkat';
     protected $fillable = [
+        'id_perangkat',
         'status',
+        'id_pelanggan',
+        'kecamatan_pelanggan',
+        'nama_perangkat',
         'penggunaan_debit_air',
     ];
 }
