@@ -54,41 +54,28 @@ class SesiController extends Controller
     }
     function create(Request $request)
     {
-
+        
         $request->validate([
             'name'=>'required',
             'email'=>'required|email|unique:users',
-            'password'=>'required|min:6',
-            'role'=>'required|in:pelanggan,kasir,petugas,admin'
-
+            'password'=>'required|min:6'
         ],[
             'name.required'=>'Name wajib diisi',
             'email.required'=>'Email wajib diisi',
             'email.email'=>'Silakan masukkan email yang valid',
             'email.unique'=>'Email sudah terdaftar',
             'password.required'=>'Password wajib diisi',
-            'password.min'=>'Minimum password adalah 6 karakter',
-            'role.required'=>'Role wajib dipilih',
-            'role.in'=>'Role yang dipilih tidak valid'
+            'password.min'=>'Minimum password adalah 6 karakter'
         ]);
 
         $data=[
             'name'=>$request->name,
             'email'=>$request->email,
-            'password'=>Hash::make($request->password),
-            'role'=>$request->role
+            'password'=>Hash::make($request->password)
         ];
         User::create($data);
 
-        $infologin = [
-            'email'=>$request->email,
-            'password'=>$request->password,
-        ];
-
-        if(Auth::attempt($infologin)){
-            return view ('login');
-        }else{
-            return redirect('/register')->withErrors('Username dan password yang dimasukkan tidak sesuai')->withInput();
-        }
+        return view ('login');
+        
     }
 }

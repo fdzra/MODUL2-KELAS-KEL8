@@ -32,8 +32,6 @@ class AdminController extends Controller
         return view('petugas.dashboard', compact('requestPemasangan', 'belumDiprosesCount', 'sedangDiprosesCount', 'sudahSelesaiCount'));
     }
     function admin(){
-        echo "Halo, selamat datang  di halaman Admin";
-        echo "<h1>". Auth::user()->name ."</h1>";
-        echo "<a href='/logout'>Logout>></a>";
+        return view('admin.dashboard');
     }
 }

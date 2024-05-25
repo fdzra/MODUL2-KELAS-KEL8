@@ -1,10 +1,11 @@
 <?php
+
+use \App\Http\Middleware\UserAkses;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SesiController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\KasirController;
-use App\Http\Controllers\SesiController;
-use Illuminate\Support\Facades\Route;
-use \App\Http\Middleware\UserAkses;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\kelolaPelangganController;
 
@@ -21,7 +22,7 @@ Route::get('/home', function(){
     return redirect('/admin');
 });
 
-Route::middleware(['auth'])->group(function(){
+    Route::middleware(['auth'])->group(function(){
     // INI BAGIAN AWALAN
     Route::get('/admin', [AdminController::class, 'index']);
 
@@ -61,9 +62,8 @@ Route::middleware(['auth'])->group(function(){
     Route::put('/admin/admin/kelolaPelanggan/{id}', [kelolaPelangganController::class, 'update'])->middleware(UserAkses::class . ':admin');
 
     Route::delete('/admin/admin/kelolaPelanggan/delete/{id}', [kelolaPelangganController::class, 'delete'])->middleware(UserAkses::class . ':admin');
-
+    
     Route::get('/logout', [SesiController::class, 'logout']);
-
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
     Route::post('/profile/photo', [ProfileController::class, 'photo'])->name('profile.photo');

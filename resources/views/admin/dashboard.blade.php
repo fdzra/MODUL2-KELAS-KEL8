@@ -28,7 +28,7 @@
             <br>
             <hr class="sidebar-divider my-0">
             <li class="nav-item">
-                <a class="nav-link" href="/">
+                <a class="nav-link" href="/admin/admin">
                     <i class="fas fa-tv text-dark"></i>
                     <span class="text-dark">Dashboard Super Admin</span></a>
             </li>

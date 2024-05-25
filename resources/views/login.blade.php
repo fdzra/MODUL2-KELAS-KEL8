@@ -9,6 +9,11 @@
     <title>Login</title>
 </head>
 <body>
+    <nav class="navbar bg-body-tertiary">
+        <a href="/register">
+        <button class="btn btn-outline-success me-2" type="button" >Register</button>
+        </a>
+    </nav>
     <div class="container py-5">
         <div class="w-50 center border rounded px-3 py-3 mx-auto">
         <h1>Login</h1>
@@ -21,7 +26,7 @@
                 </ul>
             </div>
         @endif
-        <form action="" method="POST">
+        <form action="/login" method="POST">
             @csrf
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
@@ -34,11 +39,8 @@
             <div class="mb-3 d-grid">
                 <button name="submit" type="submit" class="btn btn-primary">Login</button>
             </div>
-            <div class="text-end small">
-                Belum punya akun? <a href="/register">Registrasi di sini</a>
-            </div>
         </form>
-    </div>
+    </div> 
     </div>
 </body>
 </html>
