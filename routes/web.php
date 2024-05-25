@@ -4,8 +4,8 @@ use \App\Http\Middleware\UserAkses;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SesiController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\KasirController;
 use App\Http\Controllers\PetugasController;
+use App\Http\Controllers\KasirController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\kelolaPelangganController;
 
@@ -22,7 +22,7 @@ Route::get('/home', function(){
     return redirect('/admin');
 });
 
-Route::middleware(['auth'])->group(function(){
+    Route::middleware(['auth'])->group(function(){
     // INI BAGIAN AWALAN
     Route::get('/admin', [AdminController::class, 'index']);
 
