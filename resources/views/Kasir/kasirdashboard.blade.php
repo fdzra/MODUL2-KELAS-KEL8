@@ -46,7 +46,9 @@
                                 <td>{{ $u->email }}</td>
                                 <td>{{ $u->role }}</td>
                                 <td>
-                                    <a href="/admin/kasir/pembayaran" class="btn btn-primary">Buat Transaksi</a>
+                                    @if ($u->role === 'pelanggan')
+                                        <a href="/admin/kasir/pembayaran" class="btn btn-primary">Buat Transaksi</a>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
@@ -81,6 +83,7 @@
                             <th scope="col">Keterangan</th>
                             <th scope="col">Penggunaan Debit Air</th>
                             <th scope="col">Total</th>
+                            <th scope="col">Detail Transaksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -94,6 +97,9 @@
                                     <td>{{ $t->keterangan }}</td>
                                     <td>{{ $t->penggunaan_debit_air }}</td>
                                     <td>{{ $t->total }}</td>
+                                    <td>
+                                        <a href="{{ url('detail-transaksi/'.$t->id_transaksi)}}" class="btn btn-primary">Detail Transaksi</a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

@@ -33,8 +33,8 @@ Route::get('/home', function(){
     Route::get('/admin/kasir', [AdminController::class, 'kasir'])->middleware(UserAkses::class . ':kasir');
     Route::get('/admin/kasir/dashboard', [KasirController::class, 'dashboard'])->middleware(UserAkses::class . ':kasir');
     Route::get('/admin/kasir/pembayaran', [KasirController::class, 'pembayaran'])->middleware(UserAkses::class . ':kasir');
-
     Route::post('place-order', [KasirController::class, 'store_pembayaran'])->middleware(UserAkses::class . ':kasir');
+    Route::get('detail-transaksi/{id_transaksi}', [KasirController::class, 'detail_transaksi'])->middleware(UserAkses::class . ':kasir');
 
     // INI BAGIAN PETUGAS
     Route::get('/admin/petugas', [AdminController::class, 'petugas'])->name('petugas.dashboard')->middleware(UserAkses::class . ':petugas');
