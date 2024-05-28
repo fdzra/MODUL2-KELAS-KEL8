@@ -62,7 +62,7 @@ Route::get('/home', function(){
     Route::put('/admin/admin/kelolaPelanggan/{id}', [kelolaPelangganController::class, 'update'])->middleware(UserAkses::class . ':admin');
 
     Route::delete('/admin/admin/kelolaPelanggan/delete/{id}', [kelolaPelangganController::class, 'delete'])->middleware(UserAkses::class . ':admin');
-
+    
     Route::get('/logout', [SesiController::class, 'logout']);
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
