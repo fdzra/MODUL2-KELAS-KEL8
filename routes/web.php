@@ -4,8 +4,8 @@ use \App\Http\Middleware\UserAkses;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SesiController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\KasirController;
+use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\kelolaPelangganController;
 
@@ -22,7 +22,7 @@ Route::get('/home', function(){
     return redirect('/admin');
 });
 
-    Route::middleware(['auth'])->group(function(){
+Route::middleware(['auth'])->group(function(){
     // INI BAGIAN AWALAN
     Route::get('/admin', [AdminController::class, 'index']);
 
@@ -33,8 +33,8 @@ Route::get('/home', function(){
     Route::get('/admin/kasir', [AdminController::class, 'kasir'])->middleware(UserAkses::class . ':kasir');
     Route::get('/admin/kasir/dashboard', [KasirController::class, 'dashboard'])->middleware(UserAkses::class . ':kasir');
     Route::get('/admin/kasir/pembayaran', [KasirController::class, 'pembayaran'])->middleware(UserAkses::class . ':kasir');
+
     Route::post('place-order', [KasirController::class, 'store_pembayaran'])->middleware(UserAkses::class . ':kasir');
-    Route::get('detail-transaksi/{id_transaksi}', [KasirController::class, 'detail_transaksi'])->middleware(UserAkses::class . ':kasir');
 
     // INI BAGIAN PETUGAS
     Route::get('/admin/petugas', [AdminController::class, 'petugas'])->name('petugas.dashboard')->middleware(UserAkses::class . ':petugas');

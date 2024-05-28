@@ -41,19 +41,34 @@ class KasirController extends Controller
 
             $transaksi->save();
 
+
+            // Data Tracking Transaksi
+
+            /*
+
+            Status Pembayaran = 0 (Pending)
+                              , 1 (Pembyaran Berhasil)
+                              , 2 (Cancel)
+                              , 3 (dilanjutkan)
+            */
+
+            // $tracktra = rand(1111,9999);
+
+            // $tt = new Tracking_Transaksi;
+
+            // $tt->id_user = $id_user;
+            // $tt->no_tracking = 'transaksi'.$tracktra;
+            // // $tt->msg_tracking = "";
+            // $tt->metode_pembayaran = 'm-banking';
+            // // $tt->id_pembayaran = '$id_user';
+            // $tt->status_pembayaran = "0";
+            // $tt->notify = "0";
+
+            // $tt->save();
+
+            // $id_tt_terakhir = $tt->id_tracking_transaksi;
+
         };
-    }
-    public function detail_transaksi($id_transaksi)
-    {
-        if(Transaksi::where('id_transaksi', $id_transaksi)->exists())
-        {
-            $transaksi=Transaksi::find($id_transaksi);
-            return view('Kasir.detailtransaksi', compact('transaksi'));
-        }
-        else
-        {
-            return redirect()->back()->with('status', 'Transaksi tidak ditemukan');
-        }
     }
 
 }
