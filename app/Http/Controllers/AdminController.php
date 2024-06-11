@@ -14,14 +14,10 @@ class AdminController extends Controller
         echo "<a href='/logout'>Logout>></a>";
     }
     function pelanggan(){
-        echo "Halo, selamat datang di halaman Pelanggan";
-        echo "<h1>". Auth::user()->name ."</h1>";
-        echo "<a href='/logout'>Logout>></a>";
+        return redirect('/penggunaan_air');
     }
     function kasir(){
-        echo "Halo, selamat datang  di halaman Kasir";
-        echo "<h1>". Auth::user()->name ."</h1>";
-        echo "<a href='/logout'>Logout>></a>";
+        return redirect('/admin/kasir/dashboard');
     }
     function petugas(){
         $requestPemasangan = DB::table('request_pemasangan')->get();

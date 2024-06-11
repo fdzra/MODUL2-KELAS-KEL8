@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('perangkat', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_perangkat');
-            $table->string('id_pelanggan');
-            $table->string('nama_pelanggan');
-            $table->string('kecamatan_pelanggan');
+            $table->integer('id_perangkat')->nullable();
+            $table->string('id_pelanggan')->nullable();
+            $table->string('nama_pelanggan')->nullable();
+            $table->string('kecamatan_pelanggan')->nullable();
             $table->string('status')->default('Aktif');
-            $table->string('nama_perangkat');
-            $table->integer('penggunaan_debit_air');
+            $table->string('nama_perangkat')->nullable();
+            $table->integer('penggunaan_debit_air')->nullable();
             $table->timestamps();
         });
     }

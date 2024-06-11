@@ -40,13 +40,13 @@
             </li>
             <hr class="sidebar-divider">
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/admin/admin/kelolaPetugas">
                     <i class="fas fa-code text-dark"></i>
                     <span class="text-dark">Kelola Petugas</span></a>
             </li>
             <hr class="sidebar-divider">
             <li class="nav-item">
-                <a class="nav-link text-dark" href="#">
+                <a class="nav-link text-dark" href="/admin/admin/kelolaKasir">
                     <i class="fas fa-dollar-sign text-dark"></i>
                     <span class="text-dark">Kelola Kasir</span></a>
             </li>
@@ -117,7 +117,8 @@
         @foreach($pelanggan as $j)
         <tr>
             <td>{{$j->id_pelanggan}}</td>
-            <td>{{ isset($perangkatMap[$j->id_pelanggan]) ? $perangkatMap[$j->id_pelanggan]->id_perangkat : '' }}</td>
+            <!-- <td>{{ isset($perangkatMap[$j->id_pelanggan]) ? $perangkatMap[$j->id_pelanggan]->id_perangkat : '' }}</td> -->
+            <td>{{$j->id_perangkat}}</td>
             <td>{{$j->pelanggan_name}}</td>
             <td>{{$j->no_handphone}}</td>
             <td>{{$j->pelanggan_email}}</td>

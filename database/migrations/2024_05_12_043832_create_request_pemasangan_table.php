@@ -15,17 +15,18 @@ class CreateRequestPemasanganTable extends Migration
     {
         Schema::create('request_pemasangan', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_pelanggan');
-            $table->text('alamat_pelanggan');
-            $table->string('no_handphone')->default('123456789'); // Ubah nilai default sesuai kebutuhan
-            $table->string('status')->default('Belum Diproses');
-            $table->string('umur');
-            $table->string('kecamatan_pelanggan');
-            $table->string('foto_pemasangan');
-            $table->string('nama_perangkat');
-            $table->string('uid_perangkat');
+            $table->string('nama')->nullable();
+            $table->text('alamat_lengkap')->nullable();
+            $table->string('nomor_telepon')->default('123456789'); // Ubah nilai default sesuai kebutuhan
+            $table->string('umur')->nullable();
+            $table->string('status')->nullable();
+            $table->string('kecamatan')->nullable();
+            $table->string('no_ktp')->nullable();
+            $table->string('foto_ktp')->nullable();
+            $table->string('nomor_kk')->nullable();
             $table->timestamp('tanggal_pengajuan')->nullable();
             $table->timestamp('terakhir_diupdate')->nullable();
+            $table->string('kode_pos')->nullable();
             $table->timestamps();
         });
     }

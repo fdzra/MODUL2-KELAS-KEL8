@@ -53,12 +53,30 @@ class User extends Authenticatable
     {
         parent::boot();
 
+        // static::created(function ($user) {
+        //     // Automatically create a corresponding pelanggan record
+        //     $user->pelanggan()->create([
+        //         'pelanggan_name' => $user->name,
+        //         'pelanggan_email' => $user->email,
+
+        //     ]);
+        // });
         static::created(function ($user) {
             // Automatically create a corresponding pelanggan record
-            $user->pelanggan()->create([
+            $pelanggan = $user->pelanggan()->create([
                 'pelanggan_name' => $user->name,
                 'pelanggan_email' => $user->email,
+            ]);
 
+            // Automatically create a corresponding perangkat record
+            $pelanggan->perangkat()->create([
+                'nama_pelanggan' => $pelanggan->pelanggan_name,
+                'id_pelanggan' => $pelanggan->id_pelanggan,
+                'id_perangkat' => 0,
+                'kecamatan_pelanggan'=> '',
+                'nama_perangkat' => '',
+                'penggunaan_debit_air'=>0,
+                // Add other fields as necessary
             ]);
         });
     }

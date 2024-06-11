@@ -14,7 +14,7 @@
 
     <div class="mb-3 text-center">
         <label for="device_UID" class="form-label">Device UID</label>
-        <input type="text" class="form-control" name="device_UID" placeholder="Device UID" value="{{$pelanggan->device_UID}}">
+        <input type="text" class="form-control" name="device_UID" placeholder="Device UID" value="{{$pelanggan->id_perangkat}}">
     </div>
 
     <div class="mb-3 text-center">

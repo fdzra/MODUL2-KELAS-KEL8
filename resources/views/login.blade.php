@@ -9,11 +9,11 @@
     <title>Login</title>
 </head>
 <body>
-    <nav class="navbar bg-body-tertiary">
+    <!-- <nav class="navbar bg-body-tertiary">
         <a href="/register">
         <button class="btn btn-outline-success me-2" type="button" >Register</button>
         </a>
-    </nav>
+    </nav> -->
     <div class="container py-5">
         <div class="w-50 center border rounded px-3 py-3 mx-auto">
         <h1>Login</h1>
@@ -40,6 +40,9 @@
                 <button name="submit" type="submit" class="btn btn-primary">Login</button>
             </div>
         </form>
+        <div class="text-end small">
+                Belum punya akun? <a href="/register">Register di sini</a>
+        </div>
     </div> 
     </div>
 </body>

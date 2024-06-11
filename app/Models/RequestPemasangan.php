@@ -9,12 +9,18 @@ class RequestPemasangan extends Model
 {
     use HasFactory;
 
+    // protected $fillable = [
+    //     'nama_perangkat',
+    //     'uid_perangkat',
+    //     'foto_pemasangan'
+    //     // tambahkan kolom lainnya yang sesuai
+    // ];
+
+    #ilham
     protected $fillable = [
-        'nama_perangkat',
-        'uid_perangkat',
-        'foto_pemasangan'
-        // tambahkan kolom lainnya yang sesuai
+        'nama', 'alamat_lengkap', 'nomor_telepon', 'umur', 'kecamatan', 'no_ktp', 'foto_ktp', 'nomor_kk', 'kode_pos',
     ];
+    
 
     protected $table = 'request_pemasangan';
 }

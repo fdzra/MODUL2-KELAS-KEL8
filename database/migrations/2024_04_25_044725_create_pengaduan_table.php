@@ -14,19 +14,18 @@ class CreatePengaduanTable extends Migration
     public function up()
     {
         Schema::create('pengaduan', function (Blueprint $table) {
-            $table->id(); // Auto-increment primary key
-            $table->string('kategori'); // Kolom untuk kategori pengaduan
-            $table->text('deskripsi'); // Kolom untuk deskripsi pengaduan
-            $table->string('id_pelanggan');
-            $table->string('nama_pelanggan');
-            $table->string('no_handphone');
-            $table->timestamp('waktu_pengaduan')->useCurrent(); // Kolom untuk waktu pengaduan (menggunakan waktu saat ini)
+            $table->id('id_pelanggan')->nullable(); // Auto-increment primary key
+            $table->string('kategori')->nullable(); // Kolom untuk kategori pengaduan
+            $table->text('deskripsi')->nullable(); // Kolom untuk deskripsi pengaduan
+            $table->string('nama_pelanggan')->nullable();
+            $table->string('no_handphone')->nullable();
+            $table->timestamp('waktu_pengaduan')->useCurrent()->nullable(); // Kolom untuk waktu pengaduan (menggunakan waktu saat ini)
             $table->timestamp('terakhir_diupdate')->nullable(); // Kolom untuk waktu terakhir update (nullable, bisa diisi kemudian)
             $table->string('bukti_pengaduan')->nullable(); // Kolom untuk nama file bukti pengaduan (nullable, bisa diisi kemudian)
             $table->string('status_pengaduan')->default('Belum Diproses'); // Kolom untuk status pengaduan, defaultnya Belum Diproses
             $table->timestamps(); // Kolom untuk created_at dan updated_at
             // Indeks untuk kolom kategori, status_pengaduan, dan waktu_pengaduan
-            $table->index(['kategori', 'status_pengaduan', 'waktu_pengaduan']);
+            $table->index(['kategori', 'status_pengaduan', 'waktu_pengaduan'])->nullable();
         });
     }
 

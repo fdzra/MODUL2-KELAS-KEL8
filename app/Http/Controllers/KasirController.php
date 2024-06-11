@@ -2,20 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Pelanggan;
 use App\Models\Perangkat;
-use App\Models\Tracking_Transaksi;
 use App\Models\Transaksi;
-use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Tracking_Transaksi;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class KasirController extends Controller
 {
     public function dashboard()
     {
-        $user = User::all();
+        // $user = User::all();
         $transaksi = Transaksi::all();
+        $user = DB::table('users')
+        ->where('users.role', 'pelanggan')
+        ->select('users.*')
+        ->get();
         return view('Kasir.kasirdashboard', compact(['user','transaksi']));
     }
     public function pembayaran()
@@ -69,6 +74,19 @@ class KasirController extends Controller
             // $id_tt_terakhir = $tt->id_tracking_transaksi;
 
         };
+        return redirect('/admin/kasir/dashboard');
+    }
+    public function detail_transaksi($id_transaksi)
+    {
+        if(Transaksi::where('id_transaksi', $id_transaksi)->exists())
+        {
+            $transaksi=Transaksi::find($id_transaksi);
+            return view('Kasir.detailtransaksi', compact('transaksi'));
+        }
+        else
+        {
+            return redirect()->back()->with('status', 'Transaksi tidak ditemukan');
+        }
     }
 
 }

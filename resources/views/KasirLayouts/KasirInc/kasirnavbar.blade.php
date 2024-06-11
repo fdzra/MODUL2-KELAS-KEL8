@@ -1,111 +1,155 @@
-<!-- Navbar -->
-<nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-    <!-- Container wrapper -->
-    <div class="container-fluid">
-      <!-- Toggle button -->
-      <button class="navbar-toggler" type="button" data-mdb-collapse-init data-mdb-target="#sidebarMenu"
-        aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
-      </button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Material Design for Bootstrap</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    <!-- MDB -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.css">
+    <!-- Custom styles -->
+    <style>
+        /* Navbar styles */
+        .navbar-scroll {
+            background-color: #FFC017;
+        }
+        
+        .navbar-scroll .nav-link,
+        .navbar-scroll .navbar-toggler-icon,
+        .navbar-scroll .navbar-brand {
+            color: #262626;
+        }
+        
+        .navbar-scrolled {
+            background-color: #fff;
+        }
+        
+        .navbar-scrolled .nav-link,
+        .navbar-scrolled .navbar-toggler-icon,
+        .navbar-scroll .navbar-brand {
+            color: #262626;
+        }
+        
+        .navbar.navbar-scroll.navbar-scrolled {
+            padding-top: auto;
+            padding-bottom: auto;
+        }
+        
+        .navbar-brand {
+            font-size: unset;
+            height: 3.5rem;
+        }
 
-      <!-- Brand -->
-      <a class="navbar-brand" href="#">
-        <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="25" alt="" loading="lazy" />
-      </a>
-      <!-- Search form -->
-      <form class="d-none d-md-flex input-group w-auto my-auto">
-        <input autocomplete="off" type="search" class="form-control rounded"
-          placeholder='Search (ctrl + "/" to focus)' style="min-width: 225px" />
-        <span class="input-group-text border-0"><i class="fas fa-search"></i></span>
-      </form>
+        .nav-item .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            margin-right: -15rem;
+        }
 
-      <!-- Right links -->
-      <ul class="navbar-nav ms-auto d-flex flex-row">
-        <!-- Notification dropdown -->
-        <li class="nav-item dropdown">
-          <a class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink"
-            role="button" data-mdb-dropdown-init aria-expanded="false">
-            <i class="fas fa-bell"></i>
-            <span class="badge rounded-pill badge-notification bg-danger">1</span>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Some news</a></li>
-            <li><a class="dropdown-item" href="#">Another news</a></li>
-            <li>
-              <a class="dropdown-item" href="#">Something else</a>
-            </li>
-          </ul>
-        </li>
+        .nav-item .dropdown-toggle img {
+            margin-right: 0.5rem; /* Adjust this value to position the image horizontally */
+        }
 
-        <!-- Icon -->
-        <li class="nav-item">
-          <a class="nav-link me-3 me-lg-0" href="#">
-            <i class="fas fa-fill-drip"></i>
-          </a>
-        </li>
-        <!-- Icon -->
-        <li class="nav-item me-3 me-lg-0">
-          <a class="nav-link" href="#">
-            <i class="fab fa-github"></i>
-          </a>
-        </li>
+        .navbar-brand img {
+            height: 40px; /* Adjust this value as needed */
+        }
 
-        <!-- Icon dropdown -->
-        <li class="nav-item dropdown">
-          <a class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow" href="#" id="navbarDropdown" role="button"
-            data-mdb-dropdown-init aria-expanded="false">
-            <i class="united kingdom flag m-0"></i>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <li>
-              <a class="dropdown-item" href="#"><i class="united kingdom flag"></i>English
-                <i class="fa fa-check text-success ms-2"></i></a>
-            </li>
-            <li>
-              <hr class="dropdown-divider" />
-            </li>
-            <li>
-              <a class="dropdown-item" href="#"><i class="poland flag"></i>Polski</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#"><i class="china flag"></i>中文</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#"><i class="japan flag"></i>日本語</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#"><i class="germany flag"></i>Deutsch</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#"><i class="france flag"></i>Français</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#"><i class="spain flag"></i>Español</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#"><i class="russia flag"></i>Русский</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#"><i class="portugal flag"></i>Português</a>
-            </li>
-          </ul>
-        </li>
+        .logo.perusahaan {
+            position: absolute;
+            top: -8px;
+            left: 0;
+            margin: 10px; /* Adjust this value for spacing */
+        }
 
-        <!-- Avatar -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#"
-            id="navbarDropdownMenuLink" role="button" data-mdb-dropdown-init aria-expanded="false">
-            <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle" height="22"
-              alt="" loading="lazy" />
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">My profile</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Logout</a></li>
-          </ul>
-        </li>
-      </ul>
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .navbar-brand img {
+                height: 30px; /* Adjust this value for mobile devices */
+            }
+
+            .logo.perusahaan {
+                position: relative;
+                top: 0;
+                margin: 0;
+                padding: 10px;
+            }
+
+            .navbar-toggler {
+                order: -1; /* Move toggle button to the left */
+            }
+
+            .navbar-collapse {
+                background-color: #FFC017; /* Background color for mobile menu */
+                padding: 10px;
+            }
+
+            .dropdown-menu {
+                position: static; /* Display dropdown menu as normal list on mobile */
+                margin-top: 10px;
+                background-color: transparent;
+                border: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <!-- Container wrapper -->
+        <div class="container">
+            <!-- Brand -->
+            <a class="logo perusahaan" href="#">
+                <img src="{{ asset('images/logo.png') }}" width="15%" alt="Logo" />
+            </a>
+
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center custom-dropdown" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                            <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg" class="rounded-circle" height="30" alt="User Avatar" loading="lazy" />
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            
+                                <!-- <form id="logout-form" action="/logout" method="POST"> -->
+                                     <!-- Include this if you are using Laravel for CSRF protection -->
+                                    <!-- <a class="dropdown-item" href="/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Logout
+                                    </a>
+                                </form> -->
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="/logout">
+                                        <i class="fas fa-dollar-sign text-dark"></i>
+                                        <span class="text-dark">Logout</span>
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- Collapsible wrapper -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+
+    <!-- Sidebar -->
+    <div id="sidebarMenu" class="collapse">
+        <!-- Add your sidebar content here -->
     </div>
-    <!-- Container wrapper -->
-  </nav>
-  <!-- Navbar -->
+    <!-- Sidebar -->
+
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.js"></script>
+    <!-- Custom scripts -->
+    <script type="text/javascript">
+        // Custom JavaScript can be added here
+    </script>
+</body>
+</html>

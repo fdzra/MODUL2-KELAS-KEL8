@@ -40,13 +40,13 @@
             </li>
             <hr class="sidebar-divider">
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/admin/admin/kelolaPetugas">
                     <i class="fas fa-code text-dark"></i>
                     <span class="text-dark">Kelola Petugas</span></a>
             </li>
             <hr class="sidebar-divider">
             <li class="nav-item">
-                <a class="nav-link text-dark" href="#">
+                <a class="nav-link text-dark" href="/admin/admin/kelolaKasir">
                     <i class="fas fa-dollar-sign text-dark"></i>
                     <span class="text-dark">Kelola Kasir</span></a>
             </li>
@@ -92,7 +92,7 @@
                                     Profile
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="/logout" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -107,7 +107,8 @@
 
     <div class="mb-3 text-center">
         <label for="id_perangkat" class="form-label" >Device UID</label>
-        <input type="text" class="form-control" name="id_perangkat" placeholder="Device UID" value="{{ $perangkat->pluck('id_perangkat')->first() }}">
+        <!-- <input type="text" class="form-control" name="id_perangkat" placeholder="Device UID" value="{{ $perangkat->pluck('id_perangkat')->first() }}"> -->
+        <input type="text" class="form-control" name="id_perangkat" placeholder="Device UID" value="{{ $pelanggan->id_perangkat }}">
     </div>
 
 

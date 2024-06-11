@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('target_penggunaan_air', function (Blueprint $table) {
             $table->id();
-            $table->float('limit_penggunaan_air');
+            $table->float('target_penggunaan_air');
             $table->timestamps();
         });
     }
